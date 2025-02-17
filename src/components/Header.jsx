@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 function Header(){
     return(
-        <div className={style.outer}>
+        <div className={style.HeadOuter}>
             <Logo />
             <Search />
             <Profile />

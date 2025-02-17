@@ -29,6 +29,7 @@
     border: 3px solid grey;
     padding: 3px;
     display: flex;
+    margin: auto;
     margin-top: 10%;
     border-radius: 20px;
 }
@@ -91,7 +92,7 @@
 
 .email{
     width: 70%;
-    height: 20px;
+    height: 60px;
     margin: 10% 0 0 11%;
     border-radius: 10px;
     font-size: 23px;
@@ -111,7 +112,7 @@
 
 .password{
     width: 70%;
-    height: 20px;
+    height: 60px;
     margin: 10% 0 0 11%;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
@@ -131,7 +132,7 @@
 
 .name{
     width: 70%;
-    height: 20px;
+    height: 60px;
     margin: 11% 0 0 11%;
     border-radius: 10px;
     font-size: 23px;

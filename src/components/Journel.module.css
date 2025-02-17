@@ -9,8 +9,8 @@
     height: 6vh;
     /* border: 1px solid black; */
     box-shadow: 3px 3px 8px rgb(237, 233, 233);
-    margin-top: -35px;
-    margin-left: -2.7%;
+    /* margin-top: -35px;
+    margin-left: -2.7%; */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -88,8 +88,18 @@
     margin-top: 12%;
 }
 
-.container{
-    width: 50%;
-    height: 900px;
+.journelContainer{
+    width: 70%;
+    height: auto;
     border: 1px solid black;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.textDiv{
+    width: 95%;
+    height: 90%;
+    background-color: rgb(246, 246, 228);
+    margin: auto;
+    margin-top: 2%;
 }

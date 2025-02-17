@@ -5,7 +5,7 @@
     justify-content: center;
 }
 
-.outer{
+.headOuter{
     width: 169.3vh;
     height: 80px;
     border-bottom: 1px solid black;
@@ -106,6 +106,8 @@
     line-height: 30px;
     position: relative;
     margin-left: 190px;
+    margin-top: 3%;
+    padding: 2%;
 }
 
 .save{
@@ -113,5 +115,6 @@
     height: 5vh;
     margin-left: -8%;
     position: absolute;
-    margin-top: 44.5%;
+    margin-top: 47.6%;
+    border-radius: 10px 10px 0 10px;
 }

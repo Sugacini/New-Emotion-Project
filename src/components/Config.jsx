@@ -1,5 +1,5 @@
 import "../Config.css";
-
+import { useState } from "react";
 
 function Config(){
 
@@ -70,10 +70,10 @@ function Config(){
     }
 
     return(
-        <div className="outer">
+        <div className="configOuter">
             <h1>Details</h1>
             {question()};
-            <button onClick={next} className="nextBtn">Next</button>
+            <button onClick={next} className="CnextBtn">Next</button>
         </div>
     )
 }

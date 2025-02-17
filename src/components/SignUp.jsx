@@ -1,17 +1,24 @@
 import "./Login.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Config from "./Config";
 import { useRef } from "react";
+import database from "../database";
+import { useNavigate } from "react-router-dom";
 
 function SignUp({change, setChange}){
-    console.log(change);
+    // console.log(change);
+
+    const navigate = useNavigate();
+
+    const [uName, setName] = useState("");
+    const [uPass, setPassword] = useState("");
+    const [uEmail, setEmail] = useState("");
 
     const nameOfUser = useRef();
     const emailOfUser = useRef();
     const passwordOfUser = useRef();
     
     const[signup, setSignUp] = useState(true);
-
     function signUp(){
         setSignUp(!signup);
         setChange(!change);
@@ -19,28 +26,44 @@ function SignUp({change, setChange}){
 
     async function signUp1(e){
         e.preventDefault();
-        alert("sign up");
+        // alert("sign up");
         let name = nameOfUser.current.value;
         let email = emailOfUser.current.value;
         let pass = passwordOfUser.current.value;
-        console.log(name,email,pass);
-        console.log('ok');
-        let postBody ={name,email,pass}
-        let response=await fetch("http://localhost:3000/addUser", {
-            method: "POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:postBody
-        })
-        console.log(response);
-        setSignUp(!signup);
-        setChange(!change);
+        if(name && email && pass){
+            console.log(uName,uEmail,uPass);
+            console.log('ok');
+            let response=await fetch("http://localhost:3000/addUser");
+            console.log(response);
+            let res = response.json();
+            let res2 = await res.then();
+            let isEmail =true;
+            console.log(res2.length, res2[0].userUniqueId);
+            for(let i=0; i<res2.length; i++){
+                if(res2[i].userUniqueId == email){
+                    isEmail=false;
+                    emailOfUser.current.style.border = " 2px solid red";
+                    setTimeout(() => {
+                        emailOfUser.current.style.border = "none";
+                    },2500)
+                }
+            }
+            if(isEmail){
+                database(uName, uPass, uEmail);
+                navigate("/home");
+            }
+            console.log(res);
+            console.log(res2);
+            console.log(uName);
+            console.log(uPass);
+            console.log(uEmail); 
+        }
+        else{
+            setSignUp(!signup);
+            setChange(!change);
+        }
     }
 
-    function checkInfo(name){
-        console.log(name);
-    }
 
     if(change){
         return(
@@ -56,12 +79,11 @@ function SignUp({change, setChange}){
             <>
             <div className="login">
                 <p className="signUpHead">Sign Up</p>
-                <input type="text" placeholder="Enter your name" className="name" ref={nameOfUser} required></input>
-                <input type="email" placeholder="Enter your Email" className="email" ref={emailOfUser} required></input>
-                <input type="password" placeholder="Enter you password" className="password" ref={passwordOfUser} required></input>
+                <input type="text" placeholder="Enter your name" className="name" ref={nameOfUser} required onChange={(e) => {setName(e.target.value)}}></input>
+                <input type="email" placeholder="Enter your userId" className="email" ref={emailOfUser} required onChange={(e) => {setEmail(e.target.value)}}></input>
+                <input type="password" placeholder="Enter you password" className="password" ref={passwordOfUser} required onChange={(e) => {setPassword(e.target.value)}}></input>
                 <button onClick={signUp1} className="signInBtn" value="signin">SIGN UP</button>
             </div>
-            {checkInfo("Sugacini")}
             </>
         )
     }
@@ -79,10 +101,38 @@ export default SignUp;
 
 
 
+        // setName(nameOfUser.current.value);
+        // setPassword(passwordOfUser.current.value);
+        // setEmail(emailOfUser.current.value);
+
+        // useEffect(() => {
+        //     setName(name);
+        //     setEmail(email);
+        //     setPassword(pass); 
+        // console.log(uName,uEmail,uPass);
+        // }, [name])
 
 
 
 
+// try{
+    //     console.log("Enter the try");
+    //     let response1 = await fetch("http://localhost:3000/user",{
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body:JSON.stringify({
+    //         userName: uName,
+    //         password : uPass,
+    //         email: uEmail,
+    //     }),
+    //     })
+    //     console.log(response1);
+    // }
+    // catch(err){
+    //     console.log("Error", err);
+    // }
 
 
 
