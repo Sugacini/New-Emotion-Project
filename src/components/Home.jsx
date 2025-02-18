@@ -124,7 +124,7 @@ function Home(){
                     }
                 }
                 let indexVal = values.indexOf(temp);
-                isEmotion = false;
+                setEmotion(false);
                 // finalEmotion=allEmotions[indexVal]+" "+temp;
                 console.log(allEmotions[indexVal], temp);
             }
