@@ -1,0 +1,505 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.heading {
+    font-family: "Lobster", sans-serif;
+    font-size: 15em;
+    text-align: center;
+    margin-top: 18%;
+    cursor: pointer;
+    color: black;
+}
+
+.background {
+    /* background-image: url("/sumplete/images/math1.jpg"); */
+    width: 100%;
+    height: 1100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.headName {
+    font-family: "Lobster", sans-serif;
+    font-size: 3em;
+    height: 80px;
+    text-align: center;
+    margin: 100px 0 0 25%;
+}
+
+.startButton {
+    width: 7%;
+    height: 60px;
+    font-size: 2em;
+    margin: -3.1% 0 0 65%;
+    border-radius: 50px;
+    background-color: #ffffff;
+    border: 2px solid;
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.play {
+    width: 10%;
+    height: 60px;
+    font-size: 2em;
+    margin: 1.5% 0 0 52%;
+    border-radius: 50px;
+    background-color: #ffffff;
+    border: 2px solid;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.startButton:hover{
+    background-color: #DEE8DD;
+}
+
+.play:hover{
+    background-color: #DEE8DD;
+}
+
+
+
+#hideDiv {
+    background-color: #FAECE8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 145%;
+    height: 1100px;
+    /* padding: 10%; */
+    display: none;
+}
+
+#gridDiv {
+    width: 45%;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#optionsDiv {
+    width: 10%;
+    height: 370px;
+    margin-top: 3%;
+    margin-left: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 2%; */
+
+}
+
+.menuBox {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    margin: 25% 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    font-size: 1.5em;
+    border-radius: 10px;
+    background-color: #ffe7e7;
+    cursor: pointer;
+
+}
+
+.insideGrid {
+    width: 33.3%;
+    height: 166.6px;
+    border: 1px solid rebeccapurple;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+.insideGrid3 {
+    width: 33.3%;
+    height: 166.6px;
+    border: 1px solid rebeccapurple;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+.insideGrid4 {
+    width: 25%;
+    height: 125px;
+    border: 1px solid rebeccapurple;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+.insideGrid5 {
+    width: 20%;
+    height: 100px;
+    border: 1px solid rebeccapurple;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    color: black;
+    cursor: pointer;
+}
+
+/* .insideGrid6{
+    width: 16.6%;
+    height: 83.3px;
+    border: 1px solid rebeccapurple;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    color: black;
+} */
+
+.answerPage3 {
+    width: 100%;
+    height: 166px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: rgb(182, 182, 182);
+}
+
+.answerPage4 {
+    width: 100%;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: rgb(182, 182, 182);
+}
+
+.answerPage5 {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: rgb(182, 182, 182);
+}
+
+/* .answerPage6{
+    width: 100%;
+    height: 83.3px;
+    border: 1px solid;
+} */
+
+#answerDiv {
+    width: 10%;
+    height: 500px;
+    margin-left: 4%;
+}
+
+#answerDiv1 {
+    width: 19%;
+    height: 100px;
+    margin: 32.5% 0 0 -42.5%;
+    display: flex;
+}
+
+.menuBox1 {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    margin: 25% 0 0 0;
+    border-radius: 10px;
+    background-color: #ffe7e7;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.box1 {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px;
+    margin-top: 8%;
+}
+
+.menuBox1:hover .word1 {
+    background-color: transparent;
+}
+
+.word1 {
+    font-family: "Concert One", sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.menuBox1:hover .box1 {
+    display: block;
+    width: 20px;
+    border-radius: 5px;
+}
+
+.box1 button {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    border-radius: 5px;
+}
+
+.subheading {
+    font-family: Inter, sans-serif;
+    font-weight: bolder;
+    width: 100%;
+    border-bottom: none;
+    background-color: #ffe7e7;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.colorClass {
+    background-color: yellow;
+    color: white;
+}
+
+.coloringClass {
+    background-image: url("/sumplete/images/wrong.png");
+    background-position: center;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+}
+
+.answerPage1_3 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: rgb(182, 182, 182);
+}
+
+.answerPage1_4 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: rgb(182, 182, 182);
+}
+
+.answerPage1_5 {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    color: rgb(182, 182, 182);
+}
+
+.finalComment {
+    width: 45%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-family: "Concert One", sans-serif;
+    /* border: 1px solid; */
+}
+
+#timer {
+    width: 20%;
+    height: 65px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-family: "Concert One", sans-serif;
+}
+
+#totalMoves {
+    width: 20%;
+    height: 65px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Concert One", sans-serif;
+    font-size: 2em;
+}
+
+.endDivBox {
+    width: 50%;
+    height: 400px;
+    background-color: white;
+}
+
+.firstBox {
+    width: 19%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: -320px;
+    margin-top: 8%;
+}
+
+.secondDiv {
+    width: 42.5%;
+    height: 500px;
+    display: flex;
+    margin: 12% 0 0 -19%;
+}
+
+.endDivBox {
+    width: 28%;
+    height: 500px;
+    background-color: rgb(235, 214, 214);
+    position: absolute;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 2.5em;
+    font-family: "Concert One", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.endDivBox1 {
+    width: 28%;
+    height: 500px;
+    background-color: rgb(235, 214, 214);
+    position: absolute;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 2.5em;
+    font-family: "Concert One", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.retry {
+    width: 40%;
+    height: 60px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 5px 5px 8px grey;
+    cursor: pointer;
+}
+
+img{
+    width: 43%;
+    height: 50px;
+    margin-left: -2%;
+}
+#timerCount{
+    margin-left: 19%;
+}
+
+#instruction{
+    width: 100%;
+    height: 1100px;
+    background-color: #FAECE8;
+    display: none;
+}
+
+.first{
+    text-align: center;
+    font-size: 4em;
+    padding-top: 5%;
+    font-family: "Concert One", sans-serif;
+}
+
+.second{
+    text-align: left;
+    font-size: 2.5em;
+    font-family: "Concert One", sans-serif;
+    margin: 5% 0 0 28%;
+    width: 900px;
+}
+
+.back{
+    width: 5%;
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: "Concert One", sans-serif;
+    margin: -35% 0 0 15%;
+    border-radius: 10px;
+}
+ 
+#firstBackground{
+    width: 100%;
+    height: 1100px;
+    background-image: url("/sumplete/images/combine.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+#sumplete{
+    width: 30%;
+    height: 400px;
+    border: 1px solid;
+    margin: 7% 0 0 12%;
+    background-image: url("/sumplete/images/Sumplete.png");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+#bingo{
+    width: 30%;
+    height: 400px;
+    border: 1px solid;
+    margin: 28% 0 0 20%;
+    background-image: url("/sumplete/images/bingologo.jpg");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}

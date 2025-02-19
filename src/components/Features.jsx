@@ -1,10 +1,19 @@
 import style from "./Features.module.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 function Features() {
 
+    const[emoImg, setEmoImg] = useState("");
+    const location = useLocation();
+    const data = location.state;
+    
+    console.log(JSON.stringify(data));
+
     const navigate = useNavigate();
+    let emoArray = ["angry1.png", "emoDisguasted.png", "emoFear.png", "emoHappy.png", "emoNuetral.png", "emoSad.png", "emoSurprise.png"];
 
     function quotesHandler() {
         navigate("/quotes");
@@ -38,7 +47,9 @@ function Features() {
                     <p className={style.feature}>Quotes</p>
                 </div>
 
-                <div className={style.item1}></div>
+                <div className={style.item1}>
+                    {/* <img src="/angry1.png" style={{width: "200px", height: "200px"}}></img> */}
+                </div>
 
                 <div className={style.item} onClick={storyHandler}>
                     <p className={style.feature}>Story</p>

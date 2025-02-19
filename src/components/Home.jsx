@@ -8,6 +8,8 @@ function Home(){
 
     const navigate = useNavigate();
 
+    const[capEmotion, setCapEmotion] = useState("");
+
     const[isEmotion, setEmotion] = useState(true);
     const srcVal = useRef();
     const canvasDetect = useRef();
@@ -126,14 +128,15 @@ function Home(){
                 let indexVal = values.indexOf(temp);
                 setEmotion(false);
                 // finalEmotion=allEmotions[indexVal]+" "+temp;
+                setCapEmotion(allEmotions[indexVal]);
                 console.log(allEmotions[indexVal], temp);
             }
             detectMessage.current.textContent = "Detected";
         }, 2000)
         
         setTimeout(() => {
-            navigate("/features");
-        }, 7000);
+            navigate("/features", {state: {findEmo:isEmotion}});
+        }, 10000);
 
     }
     return(

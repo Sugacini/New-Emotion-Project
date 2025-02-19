@@ -18,6 +18,7 @@ import Quotes from './components/Quotes.jsx'
 import Config from './components/Config.jsx'
 import Story from './components/Story.jsx'
 import Journel1 from './components/Journel1.jsx';
+import Sumplete from './components/Sumplete.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -26,9 +27,10 @@ createRoot(document.getElementById('root')).render(
     {/* <LoginPage /> */}
     {/* <Config /> */}
     {/* <PathRouter /> */}
-    <App />
+    {/* <App /> */}
     {/* <JournelHeader />
     <Journel /> */}
+    <Sumplete />
     {/* <Journel1 /> */}
     {/* <Home /> */}
     {/* <VideoComponent /> */}

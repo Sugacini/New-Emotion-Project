@@ -36,6 +36,9 @@ body{
 .item1{
     border-radius: 50%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    background-image: url("angry1.png");
+    background-size: contain;
+    background-position: -10% -10%;
 }
 
 img{

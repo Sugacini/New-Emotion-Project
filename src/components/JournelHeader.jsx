@@ -10,19 +10,13 @@ function JournelLogo() {
 
     function createDiv(){
         setCount(count+1);
-        let newDiv = document.createElement("div");
-        newDiv.contentEditable=true
-        newDiv.textContent=count;
-        newDiv.className="textDiv";
-        newDiv.style.width = "95%";
-        newDiv.style.padding = "2%";
-        newDiv.style.fontSize = "1.5em";
-        newDiv.style.height = "500px";
-        newDiv.style.margin = "auto";
-        newDiv.style.marginTop = "2%";
-        newDiv.style.backgroundColor = "grey";
-        newDiv.style.overflow = "scroll";
-        createTextDiv.current.append(newDiv);
+        return(
+            <div className={style.journelBox}>
+                <div className={style.textBox}></div>
+                <button className={style.saveButton}>Save</button>
+                <button className={style.trash}>Delete</button>
+            </div>
+        )
     }
 
     return (
@@ -62,6 +56,30 @@ function JournelLogo() {
 }
 
 export default JournelLogo;
+
+
+
+// let newDiv = document.createElement("div");
+        // let writeDiv = document.createElement("div");
+        // let button1 = document.createElement("button");
+        // let button2 = document.createElement("button");
+
+        // newDiv.appendChild(writeDiv);
+        // newDiv.appendChild(button1);
+        // newDiv.appendChild(button2);
+
+        // newDiv.contentEditable=true
+        // newDiv.textContent=count;
+        // newDiv.className="textDiv";
+        // newDiv.style.width = "95%";
+        // newDiv.style.padding = "2%";
+        // newDiv.style.fontSize = "1.5em";
+        // newDiv.style.height = "500px";
+        // newDiv.style.margin = "auto";
+        // newDiv.style.marginTop = "2%";
+        // newDiv.style.backgroundColor = "grey";
+        // newDiv.style.overflow = "scroll";
+        // createTextDiv.current.append(newDiv);
 
 
 
