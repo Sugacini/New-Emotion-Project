@@ -3,7 +3,7 @@ const app = express();
 let path = require("path");
 const mysql = require("mysql2");
 const cors=require("cors");
-const stream = require("./emotion.js")
+const stream = require("/emotion.js")
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",

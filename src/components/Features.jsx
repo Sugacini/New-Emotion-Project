@@ -1,19 +1,43 @@
 import style from "./Features.module.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState , useRef} from "react";
 import { useLocation } from "react-router-dom";
+let count = 0;
 
 function Features() {
+    const setImg = useRef();
+    let setNewImg;
 
     const[emoImg, setEmoImg] = useState("");
     const location = useLocation();
     const data = location.state;
-    
-    console.log(JSON.stringify(data));
+    const data1 = (JSON.stringify(data.findEmo));
+    const finalEmo = data1.slice(1,data1.length-1);
+    console.log(JSON.stringify(data.findEmo), finalEmo);
 
     const navigate = useNavigate();
+    let emotionsArr = ["angry", "disguasted", "fear", "happy", "neutral", "sad", "surprised"];
     let emoArray = ["angry1.png", "emoDisguasted.png", "emoFear.png", "emoHappy.png", "emoNuetral.png", "emoSad.png", "emoSurprise.png"];
+
+    if(count == 0){
+        for(let i=0; i<emotionsArr.length; i++){
+            console.log("Enter for");
+            console.log(emotionsArr[i])
+            console.log(emotionsArr[i] == data1);
+            if(emotionsArr[i] == finalEmo){
+                let idxVal = emotionsArr.indexOf(emotionsArr[i]);
+                let findEmoVal = emoArray[idxVal];
+                console.log("enter if")
+                setEmoImg(findEmoVal);
+                setImg.current = findEmoVal;
+                setNewImg=findEmoVal;
+                break;
+            }
+        }
+        count++;
+    }
+    
 
     function quotesHandler() {
         navigate("/quotes");
@@ -26,8 +50,9 @@ function Features() {
     function storyHandler() {
         navigate("/story");
     }
-
+    console.log(setImg.current, emoImg, setNewImg, data1);
     return (
+        
         <>
             <div className={style.featureContainer}>
 
@@ -47,7 +72,7 @@ function Features() {
                     <p className={style.feature}>Quotes</p>
                 </div>
 
-                <div className={style.item1}>
+                <div className={style.item1} style={{backgroundImage: `url(${setImg.current})`}}>
                     {/* <img src="/angry1.png" style={{width: "200px", height: "200px"}}></img> */}
                 </div>
 

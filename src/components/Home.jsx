@@ -8,7 +8,7 @@ function Home(){
 
     const navigate = useNavigate();
 
-    const[capEmotion, setCapEmotion] = useState("");
+    const findEmotion = useRef();
 
     const[isEmotion, setEmotion] = useState(true);
     const srcVal = useRef();
@@ -127,15 +127,14 @@ function Home(){
                 }
                 let indexVal = values.indexOf(temp);
                 setEmotion(false);
-                // finalEmotion=allEmotions[indexVal]+" "+temp;
-                setCapEmotion(allEmotions[indexVal]);
+                findEmotion.current = allEmotions[indexVal];
                 console.log(allEmotions[indexVal], temp);
             }
             detectMessage.current.textContent = "Detected";
         }, 2000)
         
         setTimeout(() => {
-            navigate("/features", {state: {findEmo:isEmotion}});
+            navigate("/features", {state: {findEmo:(findEmotion.current)}});
         }, 10000);
 
     }

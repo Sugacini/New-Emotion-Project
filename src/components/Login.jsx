@@ -21,7 +21,10 @@ function Login({change, setChange}){
         let uniqueId = userName.current.value;
         let password = userPassword.current.value;
         if(uniqueId && password){
-            let response=await fetch("http://localhost:3000/addUser");
+            let response=await fetch("http://localhost:3000/addUser",{
+                method:"GET",
+                // mode: "no-cors"
+            });
             console.log(response);
             let res = response.json();
             let res2 = await res.then();
