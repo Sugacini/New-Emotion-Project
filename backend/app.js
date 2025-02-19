@@ -54,19 +54,19 @@ app.post("/newUser", (req, res) => {
     let {userName, userPass, userEmail} = req.body;
     console.log("Data", userName)
     console.log(req.body.name, req.body.pass)
-    // try{
-    //     connection.query("insert into users(userName, password, userUniqueId) values(?,?,?)", [userName, userPass, userEmail], (err, result) => {
-    //         if(err){
-    //             console.log(err);
-    //         }
-    //         else{
-    //             res.send(result);
-    //         }
-    //     })
-    // }
-    // catch(err){
-    //     console.log("Error", err);
-    // }
+    try{
+        connection.query("insert into users(userName, password, userUniqueId) values(?,?,?)", [userName, userPass, userEmail], (err, result) => {
+            if(err){
+                console.log(err);
+            }
+            else{
+                res.send(result);
+            }
+        })
+    }
+    catch(err){
+        console.log("Error", err);
+    }
 })
 
 app.listen(3000, () => {

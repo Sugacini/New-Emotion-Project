@@ -27,10 +27,10 @@ createRoot(document.getElementById('root')).render(
     {/* <LoginPage /> */}
     {/* <Config /> */}
     {/* <PathRouter /> */}
-    {/* <App /> */}
+    <App />
     {/* <JournelHeader />
     <Journel /> */}
-    <Sumplete />
+    {/* <Sumplete /> */}
     {/* <Journel1 /> */}
     {/* <Home /> */}
     {/* <VideoComponent /> */}
