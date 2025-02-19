@@ -28,11 +28,6 @@ function Sumplete() {
                 <div className="play" onclick={playButton}>How to play</div>
                 <div className="startButton" onclick={startHandler} ref={startBtn}>Start</div>
             </div>
-            {/* <div id="background" ref={backRef}>
-                <div className="heading" ref={headRef}>Sumplete</div>
-                <div id="play" onclick="playButton()">How to Play</div>
-                <button onclick={startHandler} id="startButton" ref={startRef}>Start</button>
-            </div> */}
 
             <div id="instruction" onclick="instructor()">
                 <p className="first">How to Play? </p>
