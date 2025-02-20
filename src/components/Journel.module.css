@@ -167,6 +167,7 @@
     height: 1028px;
     border: 1px solid;
     padding: 2%;
+    overflow: scroll;
     /* margin-top: 2%; */
 }
 
@@ -174,4 +175,23 @@
     border: 1px solid;
     width: 90%;
     height: 20%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.headOfJournel{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+    margin-top: 10%;
+}
+
+.timeAndDate{
+    width: 95%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    font-size: 1.2em;
+    margin-top: 32%;
 }

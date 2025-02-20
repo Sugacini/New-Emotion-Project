@@ -16,13 +16,14 @@ function JournelLogo() {
 
     const [count, setCount] = useState(0);
 
-    useEffect(() => {
-        if (saveText.current) {
-            saveText.current.innerText = value1;
-        }
-    }, [saveText.current]);
+    // useEffect(() => {
+    //     if (saveText.current) {
+    //         saveText.current.innerText = value1;
+    //     }
+    // }, [saveText.current]);
 
     function createDiv() {
+        console.log(count);
         if (count == 0) {
             setJournalBoxes((prev) => [...prev, {}]);
         }
@@ -40,8 +41,9 @@ function JournelLogo() {
         let time = dateAndTime[1];
         console.log(now);
         console.log(dateAndTime);
-        setDataDiv((prev) => [...prev, {value1}, {date}, {time}])
+        setDataDiv((prev) => [...prev, { value1, date, time }])
         newDiv.current.remove();
+        setCount(0);
     }
 
     function deleteData() {
@@ -97,7 +99,11 @@ function JournelLogo() {
                     {newDataDiv.map((ele, index) => {
                         { console.log(index) }
                         return <div className={style.dataSaveDiv} ref={saveText} key={index}>
-                            {ele.value1} {ele.date} {ele.time}
+                            <p className={style.headOfJournel}>{ele.value1}</p>
+                            <div className={style.timeAndDate}>
+                                <p>{ele.date}</p>
+                                <p>{ele.time}</p>
+                            </div>
                         </div>
                     })}
                 </div>

@@ -1,8 +1,6 @@
 function expandParentsWidth() {
-
     var element = document.querySelector('.mainOfMusic');
     element.style.width = '1310px';
-    // document.querySelector('.albumName').style.fontSize='40px';
 }
 
 function AlbumBox({name, idx, imgUrl, setState, setAlbum, description}) {
