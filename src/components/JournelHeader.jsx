@@ -34,7 +34,14 @@ function JournelLogo() {
         let value = writeText.current.textContent;
         let value1 = value.slice(0, 5);
         console.log(value, value1);
-        setDataDiv((prev) => [...prev, {value1}])
+        let now = new Date();
+        let dateAndTime = (now.toLocaleString()).split(",");
+        let date = dateAndTime[0];
+        let time = dateAndTime[1];
+        console.log(now);
+        console.log(dateAndTime);
+        setDataDiv((prev) => [...prev, {value1}, {date}, {time}])
+        newDiv.current.remove();
     }
 
     function deleteData() {
@@ -77,7 +84,6 @@ function JournelLogo() {
             <div className={style.writeJournel}>
                 <div className={style.journelContainer} ref={createTextDiv}>
                     {newJournelDiv.map((_, index) => (
-
                         <div key={index} className={style.journelBox} ref={newDiv}>{console.log(index)}
                             <div className={style.textBox} ref={writeText} contentEditable={true}></div>
                             <div className="buttons">
@@ -88,9 +94,11 @@ function JournelLogo() {
                     ))}
                 </div>
                 <div className={style.saveJournel} ref={writingDataSave}>
-                    {newDataDiv.map((el, index) => {
+                    {newDataDiv.map((ele, index) => {
                         { console.log(index) }
-                        return <div className={style.dataSaveDiv} ref={saveText} key={index}> {el.value1} </div>
+                        return <div className={style.dataSaveDiv} ref={saveText} key={index}>
+                            {ele.value1} {ele.date} {ele.time}
+                        </div>
                     })}
                 </div>
             </div>

@@ -48,7 +48,7 @@ function MusicPage() {
   finalEmo = data1.slice(1,data1.length-1);
   emojiImg = finalEmo+".png";
   // setImg.current.src=`url(emojiImg)`;
-  console.log(finalEmo);
+  // console.log(finalEmo);
   useEffect(()=>{
     dataReceiver().then(res=>setData(res));
   },[])
@@ -83,7 +83,7 @@ function MusicPage() {
   return (
     <>
       <HeaderAndSideBar />
-      {console.log(emojiImg)}
+      {/* {console.log(emojiImg)} */}
       <div className='wholeMusicPage'>
         {selectedAlbumIdx==null?<div id='musicsLeft'>
             <img src={emojiImg} alt="" className='emojiImage' />
@@ -91,7 +91,7 @@ function MusicPage() {
         : <div id='musicsLeft' className='leftOfMainMusic'>
             <img alt="" src={emojiImg} className='emojiImage' ref={setImg}/>
             <div>
-              {data.map((album, idx) => (idx < 9) ? <SideBarredAlbum idx={idx} imgUrl={album.data.image[0].url} name={album.data.name} setAlbum={setAlbum} selectedAlbumIdx={selectedAlbumIdx}/> : null)}
+              {data.map((album, idx) => (idx < 9) ? <SideBarredAlbum idx={idx} imgUrl={album.data.image[0].url}  name={album.data.name} setAlbum={setAlbum} selectedAlbumIdx={selectedAlbumIdx}/> : null)}
             </div>
           </div>}
         <div className='mainOfMusic'>
@@ -101,7 +101,7 @@ function MusicPage() {
 
           <div className={addElement ? 'musicBottomSec' : 'mainsBottomSec'}>
 
-            {!addElement ? (data!=null)? data.map((album, idx) =>      
+            {!addElement ? (data!=null)? data.map((album, idx) =>  
               (idx < 9) ? <AlbumBox name={album.data.name} key={idx} idx={idx} imgUrl={album.data.image[2].url} setState={setState} setAlbum={setAlbum} description={album.data.description}></AlbumBox> :null):<p>Choosing the right ones for you!</p> : null }
 
             {addElement ? <div className='titleBox'>
