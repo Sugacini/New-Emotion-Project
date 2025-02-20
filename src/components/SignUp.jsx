@@ -10,6 +10,9 @@ function SignUp({change, setChange}){
 
     const navigate = useNavigate();
 
+    const idValue = useRef();
+    const passValue = useRef();
+
     const [uName, setName] = useState("");
     const [uPass, setPassword] = useState("");
     const [uEmail, setEmail] = useState("");
@@ -42,6 +45,10 @@ function SignUp({change, setChange}){
             for(let i=0; i<res2.length; i++){
                 if(res2[i].userUniqueId == email){
                     isEmail=false;
+                    idValue.current.textContent = "This UserId is already exists";
+                    idValue.current.style.color = "red";
+                    idValue.current.style.margin = "3% 0 0 28%";
+                    idValue.current.style.fontSize = "18px";
                     emailOfUser.current.style.border = " 2px solid red";
                     setTimeout(() => {
                         emailOfUser.current.style.border = "none";
@@ -49,8 +56,33 @@ function SignUp({change, setChange}){
                 }
             }
             if(isEmail){
-                database(uName, uPass, uEmail);
-                navigate("/home");
+                if((uPass.length >= 8) && (uEmail.length >= 6)){
+                    database(uName, uPass, uEmail);
+                    navigate("/home");
+                }
+                if(uPass.length < 8){
+                    passwordOfUser.current.style.border = "2px solid red";
+                    passValue.current.textContent = "Password must be 8 characters";
+                    passValue.current.style.color = "red";
+                    passValue.current.style.margin = "3% 0 0 25%";
+                    passValue.current.style.fontSize = "18px";
+
+                    setTimeout(() => {
+                        passwordOfUser.current.style.border = "none";
+                    }, 2500)
+                }
+                if(uEmail.length < 6){
+                    emailOfUser.current.style.border = "2px solid red";
+                    idValue.current.textContent = "UserId must be 6 characters";
+                    idValue.current.style.color = "red";
+                    idValue.current.style.margin = "3% 0 0 25%";
+                    idValue.current.style.fontSize = "18px";
+
+                    setTimeout(() => {
+                        emailOfUser.current.style.border = "none";
+                    }, 2500)
+                }
+                
             }
             console.log(res);
             console.log(res2);
@@ -81,7 +113,9 @@ function SignUp({change, setChange}){
                 <p className="signUpHead">Sign Up</p>
                 <input type="text" placeholder="Enter your name" className="name" ref={nameOfUser} required onChange={(e) => {setName(e.target.value)}}></input>
                 <input type="email" placeholder="Enter your userId" className="email" ref={emailOfUser} required onChange={(e) => {setEmail(e.target.value)}}></input>
+                <p ref={idValue}></p>
                 <input type="password" placeholder="Enter you password" className="password" ref={passwordOfUser} required onChange={(e) => {setPassword(e.target.value)}}></input>
+                <p ref={passValue}></p>
                 <button onClick={signUp1} className="signInBtn" value="signin">SIGN UP</button>
             </div>
             </>

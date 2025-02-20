@@ -113,7 +113,7 @@
 .password{
     width: 70%;
     height: 60px;
-    margin: 10% 0 0 11%;
+    margin: 5% 0 0 11%;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     font-size: 23px;
@@ -163,3 +163,4 @@
 .signInBtn:hover{
     background-color: rgb(246, 244, 244);
 }
+

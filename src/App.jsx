@@ -5,6 +5,7 @@ import Journel1 from "./components/Journel1";
 import LoginPage from "./components/LoginPage";
 import Features from "./components/Features";
 import Home from "./components/Home";
+import MusicPage from "./components/musicPage";
 
 function App(){
   return(
@@ -16,6 +17,7 @@ function App(){
         <Route path="/story" element={<Story />} />
         <Route path="/quotes" element={<Quotes />} />
         <Route path="/journel" element={<Journel1 />} />
+        <Route path="/music" element={<MusicPage />} />
       </Routes>
     </Router>
   )

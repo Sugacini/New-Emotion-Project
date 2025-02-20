@@ -3,13 +3,23 @@ const app = express();
 let path = require("path");
 const mysql = require("mysql2");
 const cors=require("cors");
-const stream = require("/emotion.js")
+// const stream = require("/emotion.js")
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "suga@123",
     database: "Emotions",
 });
+
+var allEmotion={
+    happy: [109815423, 889114311, 109817676, 811267800, 76182059, 1219741136, 1139646951, 3573131, 37977149],
+    sad: [804092154, 841396707, 901722501, 154637590, 1080860547, 61387835, 1219740946, 811267576, 782470134],
+    surprised: [1026391929, 1219737282, 889114311, 1133105280, 901723301, 742996492, 232420590, 898714584, 76293059],
+    angry: [901722501, 789168950, 2721785, 516290971, 31211088, 81077086, 790274287, 80577755, 792884617],
+    neutral: [810778, 1215078716, 897292996, 80802063, 83735561, 67691546, 799958976, 80203835, 838067360],
+    disgust: [154338787, 109118539, 1098155077, 83409616, 215424181, 792556286, 221835210, 837803163, 767974807],
+    fear: [4770633, 858957013, 79752572, 85233911, 793219647, 47119659, 696047329, 84621025, 79785694 ],
+}
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -35,16 +45,20 @@ connection.connect((err) =>{
 })
 
 app.get("/video", (req, res) => {
-    let videoAns = stream.getLocalStream();
+    // let videoAns = stream.getLocalStream();
     console.log(videoAns);
     res.send(videoAns);
 })
 
 app.get("/addUser",(req,res)=>{
-    connection.query("select userUniqueId from users", (err,result) => {
+    connection.query("select userUniqueId,password from users", (err,result) => {
         if(!err){
             res.status = 200;
+            console.log(result);
             res.send(result);
+        }
+        else{
+            console.log("Throw error");
         }
     })
 })
@@ -53,7 +67,6 @@ app.post("/newUser", (req, res) => {
     console.log(req.body);
     let {userName, userPass, userEmail} = req.body;
     console.log("Data", userName)
-    console.log(req.body.name, req.body.pass)
     try{
         connection.query("insert into users(userName, password, userUniqueId) values(?,?,?)", [userName, userPass, userEmail], (err, result) => {
             if(err){
@@ -68,6 +81,40 @@ app.post("/newUser", (req, res) => {
         console.log("Error", err);
     }
 })
+
+app.post('/emotions',async (req,res)=>{
+    // console.log(req.body);
+    
+    var emotion=req.body.emotion;
+    var albumIds=allEmotion[emotion];
+    var response;
+    var responseData;
+
+    try {
+        var responses=await Promise.all(
+            albumIds.map(async (albumId) => {
+                try {
+                    response = await fetch('https://saavn.dev/api/playlists?id='+albumId);
+                    responseData= await response.json();
+                    return responseData;
+                } catch (error) {
+                    console.log(error);
+                    return null
+                }
+            })
+        )
+
+        responses=responses.filter((res)=>res!=null)
+        console.log(responses);
+        
+        res.send(responses);    
+
+    } catch (error) {
+        console.log(error);   
+    }
+
+})
+
 
 app.listen(3000, () => {
     console.log("Server Connected port 3000");

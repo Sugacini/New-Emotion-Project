@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import React from 'react'
+import MusicPage from './components/musicPage.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import Features from './components/Features.jsx'
 import App from './App.jsx'
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')).render(
     <Journel /> */}
     {/* <Sumplete /> */}
     {/* <Journel1 /> */}
+    {/* <MusicPage /> */}
     {/* <Home /> */}
     {/* <VideoComponent /> */}
     {/* <Quotes /> */}

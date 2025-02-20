@@ -1,22 +1,46 @@
 import style from "./Journel.module.css";
-import {useState} from "react";
+import { useState } from "react";
 import { useRef } from "react";
+import { useEffect } from "react";
 
 function JournelLogo() {
 
     const createTextDiv = useRef();
+    const newDiv = useRef();
+    const writeText = useRef();
+    const saveText = useRef();
+    const writingDataSave = useRef();
+
+    const [newJournelDiv, setJournalBoxes] = useState([]);
+    const [newDataDiv, setDataDiv] = useState([]);
 
     const [count, setCount] = useState(0);
 
-    function createDiv(){
-        setCount(count+1);
-        return(
-            <div className={style.journelBox}>
-                <div className={style.textBox}></div>
-                <button className={style.saveButton}>Save</button>
-                <button className={style.trash}>Delete</button>
-            </div>
-        )
+    useEffect(() => {
+        if (saveText.current) {
+            saveText.current.innerText = value1;
+        }
+    }, [saveText.current]);
+
+    function createDiv() {
+        if (count == 0) {
+            setJournalBoxes((prev) => [...prev, {}]);
+        }
+        setCount(count + 1);
+        console.log(count)
+    }
+
+    function saveData() {
+        let value = writeText.current.textContent;
+        let value1 = value.slice(0, 5);
+        console.log(value, value1);
+        setDataDiv((prev) => [...prev, {value1}])
+    }
+
+    function deleteData() {
+        newDiv.current.remove();
+        setCount(0);
+        console.log("Delete the data");
     }
 
     return (
@@ -50,7 +74,28 @@ function JournelLogo() {
                 </div>
             </div>
 
-            <div className={style.journelContainer} ref={createTextDiv}></div>
+            <div className={style.writeJournel}>
+                <div className={style.journelContainer} ref={createTextDiv}>
+                    {newJournelDiv.map((_, index) => (
+
+                        <div key={index} className={style.journelBox} ref={newDiv}>{console.log(index)}
+                            <div className={style.textBox} ref={writeText} contentEditable={true}></div>
+                            <div className="buttons">
+                                <button className={style.saveButton} onClick={saveData}>Save</button>
+                                <button className={style.trash} onClick={deleteData}>Delete</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className={style.saveJournel} ref={writingDataSave}>
+                    {newDataDiv.map((el, index) => {
+                        { console.log(index) }
+                        return <div className={style.dataSaveDiv} ref={saveText} key={index}> {el.value1} </div>
+                    })}
+                </div>
+            </div>
+
+
         </>
     )
 }
@@ -58,56 +103,3 @@ function JournelLogo() {
 export default JournelLogo;
 
 
-
-// let newDiv = document.createElement("div");
-        // let writeDiv = document.createElement("div");
-        // let button1 = document.createElement("button");
-        // let button2 = document.createElement("button");
-
-        // newDiv.appendChild(writeDiv);
-        // newDiv.appendChild(button1);
-        // newDiv.appendChild(button2);
-
-        // newDiv.contentEditable=true
-        // newDiv.textContent=count;
-        // newDiv.className="textDiv";
-        // newDiv.style.width = "95%";
-        // newDiv.style.padding = "2%";
-        // newDiv.style.fontSize = "1.5em";
-        // newDiv.style.height = "500px";
-        // newDiv.style.margin = "auto";
-        // newDiv.style.marginTop = "2%";
-        // newDiv.style.backgroundColor = "grey";
-        // newDiv.style.overflow = "scroll";
-        // createTextDiv.current.append(newDiv);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import style from "./Journel.module.css";
-// import JournelOptions from "./JournelOptions";
-// import JournelLogo from "./JournelLogo";
-
-// function JournelHeader(){
-//     return(
-//         <div className={style.journelHeader}>
-//             <JournelLogo />
-//         </div>
-//     )
-// }
-
-// export default JournelHeader;

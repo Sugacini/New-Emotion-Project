@@ -28,9 +28,10 @@ function Login({change, setChange}){
             console.log(response);
             let res = response.json();
             let res2 = await res.then();
+            console.log(res2);
             let isEmail = false;
             for(let i=0; i<res2.length; i++){
-                if(uniqueId == res2[0].userUniqueId){
+                if((uniqueId == res2[0].userUniqueId) && (password == res2[0].password)){
                     isEmail=true;
                     console.log("The details is already exists");
                     navigate("/home");

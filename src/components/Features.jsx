@@ -7,7 +7,6 @@ let count = 0;
 
 function Features() {
     const setImg = useRef();
-    let setNewImg;
 
     const[emoImg, setEmoImg] = useState("");
     const location = useLocation();
@@ -17,24 +16,11 @@ function Features() {
     console.log(JSON.stringify(data.findEmo), finalEmo);
 
     const navigate = useNavigate();
-    let emotionsArr = ["angry", "disguasted", "fear", "happy", "neutral", "sad", "surprised"];
-    let emoArray = ["angry1.png", "emoDisguasted.png", "emoFear.png", "emoHappy.png", "emoNuetral.png", "emoSad.png", "emoSurprise.png"];
-
+    
     if(count == 0){
-        for(let i=0; i<emotionsArr.length; i++){
-            console.log("Enter for");
-            console.log(emotionsArr[i])
-            console.log(emotionsArr[i] == data1);
-            if(emotionsArr[i] == finalEmo){
-                let idxVal = emotionsArr.indexOf(emotionsArr[i]);
-                let findEmoVal = emoArray[idxVal];
-                console.log("enter if")
-                setEmoImg(findEmoVal);
-                setImg.current = findEmoVal;
-                setNewImg=findEmoVal;
-                break;
-            }
-        }
+        setImg.current = finalEmo+".png";
+        console.log(setImg.current)
+        setEmoImg(finalEmo+".png");
         count++;
     }
     
@@ -50,13 +36,18 @@ function Features() {
     function storyHandler() {
         navigate("/story");
     }
-    console.log(setImg.current, emoImg, setNewImg, data1);
+
+    function musicHandler(){
+        navigate("/music", {state: {emo:(finalEmo)}});
+    }
+
+    console.log(setImg.current, emoImg, data1);
     return (
         
         <>
             <div className={style.featureContainer}>
 
-                <div className={style.item}>
+                <div className={style.item} onClick={musicHandler}>
                     <i className="fa-solid fa-music" style={{ color: 'white', fontSize: "70px" }}></i>
                 </div>
 
