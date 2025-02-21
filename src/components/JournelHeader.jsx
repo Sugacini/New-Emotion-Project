@@ -16,12 +16,6 @@ function JournelLogo() {
 
     const [count, setCount] = useState(0);
 
-    // useEffect(() => {
-    //     if (saveText.current) {
-    //         saveText.current.innerText = value1;
-    //     }
-    // }, [saveText.current]);
-
     function createDiv() {
         console.log(count);
         if (count == 0) {

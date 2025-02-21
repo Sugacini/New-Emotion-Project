@@ -26,7 +26,7 @@ function decreseParentsWidth() {
 async function dataReceiver() {
   console.log(finalEmo);
   try {
-    var response= await fetch('http://localhost:3005/emotions',{
+    var response= await fetch('http://localhost:3000/emotions',{
       method:'POST',
       headers:{"Content-type":"application/json"},
       body:JSON.stringify({emotion:finalEmo})})

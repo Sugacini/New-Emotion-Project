@@ -4,7 +4,7 @@ import { useState } from "react";
 let count = 0;
 
 function Story(){
-
+    // count = 0;
     const [story, setStory] = useState("");
     const [title, setTitle] = useState("");
     const [sAuthor, setAuthor] = useState("");
@@ -23,6 +23,7 @@ function Story(){
 
     console.log(count);
     if(count == 0){
+        console.log('printed');
         getStory();
         count++;
     }

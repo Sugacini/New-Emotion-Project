@@ -40,7 +40,9 @@
     height: 100%;
     /* border: 1px solid black; */
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
+    gap: 20px;
 }
 
 .innerProfile{
@@ -93,6 +95,7 @@
     height: auto;
     border: 1px solid black;
     position: relative;
+    padding-left: 50px;
     /* margin: auto; */
     /* margin-top: 2%; */
     display: flex;
@@ -112,7 +115,7 @@
 .journelBox{
     width: 95%;
     height: 950px;
-    border: 1px solid;
+    /* border: 1px solid; */
     margin: auto;
     /* margin-top: 2%; */
     justify-content: center;
@@ -138,7 +141,7 @@
     width: 95%;
     height: 95%;
     background-color: rgb(214, 211, 211);
-    margin: auto;
+    /* margin: auto; */
     padding: 2%;
     font-size: 1.5em;
 }
@@ -146,7 +149,7 @@
 .saveButton{
     width: 10%;
     height: 40px;
-    margin: 5px 0 0 30px;
+    margin: 5px 0 0 0px;
 }
 
 .trash{

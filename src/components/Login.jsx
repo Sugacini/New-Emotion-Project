@@ -18,6 +18,7 @@ function Login({change, setChange}){
     }
 
     async function signIn(){
+        console.log("enter the sigin");
         let uniqueId = userName.current.value;
         let password = userPassword.current.value;
         if(uniqueId && password){
@@ -31,7 +32,7 @@ function Login({change, setChange}){
             console.log(res2);
             let isEmail = false;
             for(let i=0; i<res2.length; i++){
-                if((uniqueId == res2[0].userUniqueId) && (password == res2[0].password)){
+                if((uniqueId == res2[i].userUniqueId) && (password == res2[i].password)){
                     isEmail=true;
                     console.log("The details is already exists");
                     navigate("/home");

@@ -58,7 +58,7 @@ app.get("/addUser",(req,res)=>{
             res.send(result);
         }
         else{
-            console.log("Throw error");
+            console.log("Throw error", err);
         }
     })
 })

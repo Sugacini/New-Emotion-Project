@@ -20,6 +20,7 @@ import Config from './components/Config.jsx'
 import Story from './components/Story.jsx'
 import Journel1 from './components/Journel1.jsx';
 import Sumplete from './components/Sumplete.jsx';
+import HomePage from './components/headerAndFirstPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -28,6 +29,7 @@ createRoot(document.getElementById('root')).render(
     {/* <LoginPage /> */}
     {/* <Config /> */}
     {/* <PathRouter /> */}
+    {/* <HomePage /> */}
     <App />
     {/* <JournelHeader />
     <Journel /> */}

@@ -48,7 +48,7 @@ function Quotes(){
                     </p>
                         
                 </div>
-                <p className="authorOfQuo">-{author}</p>
+                {author?<p className="authorOfQuo">-{author}</p>:<p className="authorOfQuo"></p>} 
             </div>
             <button className="nextQuoBtn" onClick={nextQuoHandler}>NEXT</button>
         </div>
