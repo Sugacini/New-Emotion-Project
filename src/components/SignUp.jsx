@@ -34,7 +34,7 @@ function SignUp({change, setChange}){
         let name = nameOfUser.current.value;
         let email = emailOfUser.current.value;
         let pass = passwordOfUser.current.value;
-        if(name && email && pass){
+        if((name && email && pass) || (name && email) || (email && pass) || (name && pass)){
             console.log(uName,uEmail,uPass);
             console.log('ok');
             let response=await fetch("http://localhost:3000/addUser");

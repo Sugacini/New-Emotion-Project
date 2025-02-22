@@ -1,4 +1,3 @@
-import './bodyOfFirstPage.css';
 import { useNavigate } from 'react-router-dom';
 function FirstPageBody() {
     const navigate = useNavigate();

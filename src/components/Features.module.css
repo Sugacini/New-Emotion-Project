@@ -2,6 +2,112 @@ body{
     background-color: rgb(232, 229, 229);
 }
 
+.featureOuter{
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featureContainer{
+    width: 755px;
+    height: 755px;
+    position: relative;
+}
+
+
+.feature{
+    color: white;
+    text-decoration: none;
+}
+
+.item{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    background-color: #1877F2;
+}
+
+.item1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.feature1 { top: 0%; left: 55%; transform: translate(-50%, 0);} 
+.feature2 { top: 20%; left: 90%; transform: translate(-50%, -50%);} 
+.feature3 { top: 60%; left: 100%; transform: translate(-50%, -50%);} 
+.feature4 { top: 100%; left: 70%; transform: translate(-50%, -100%);}
+.feature5 { top: 85%; left: 30%; transform: translate(-50%, -50%);} 
+.feature6 { top: 55%; left: 5%; transform: translate(-50%, -50%);} 
+.feature7 { top: 20%; left: 20%; transform: translate(-50%, -50%);} 
+
+/* img{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 50px;
+} */
+
+.icon{
+    color: white;
+    font-size: 20%;
+}
+
+.icons{
+    color: white;
+    font-size: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body{
+    background-color: rgb(232, 229, 229);
+}
+
 .featureContainer{
     width: 755px;
     height: 755px;
@@ -36,7 +142,6 @@ body{
 .item1{
     border-radius: 50%;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    /* background-image: url("angry1.png"); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: -10% -10%;
@@ -58,3 +163,8 @@ img{
     color: white;
     font-size: 20%;
 }
+
+.icons{
+    color: white;
+    font-size: 70px;
+} */

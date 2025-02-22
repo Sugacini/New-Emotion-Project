@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState , useRef} from "react";
 import { useLocation } from "react-router-dom";
 import ChatBot from "./ChatBot";
-import { FaRobot } from "react-icons/fa6";
+import { FaRobot, FaMusic, FaBook, FaQuoteRight, FaUtensils, FaClapperboard, FaGamepad, FaB } from "react-icons/fa6";
 
 let count = 0;
 
@@ -52,23 +52,23 @@ function Features() {
     console.log(setImg.current, emoImg, data1);
     return (
         
-        <>
+        <div className={style.featureOuter}>
             <div className={style.featureContainer}>
 
                 <div className={`${style.item} ${style.feature1}`} onClick={musicHandler}>
-                    <i className="fa-solid fa-music" style={{ color: 'white', fontSize: "70px" }}></i>
+                    <FaMusic className={style.icons} />
                 </div>
 
                 <div className={`${style.item} ${style.feature2}`} onClick={journelHandler}>
-                    <i className="fa-solid fa-book" style={{ color: 'white', fontSize: "70px" }}></i>
+                    <FaBook className={style.icons} />
                 </div>
 
                 {/* <div className={style.item}>
-                    <i className="fa-solid fa-person-walking" style={{ color: 'white', fontSize: "70px" }}></i>
+                    <i className="fa-solid fa-person-walking"></i>
                 </div> */}
 
                 <div className={`${style.item} ${style.feature3}`} onClick={quotesHandler}>
-                <i className="fa-solid fa-quote-right" style={{ color: 'white', fontSize: "70px" }}></i>
+                <FaQuoteRight className={style.icons} />
                     {/* <p className={style.feature}>Quotes</p> */}
                 </div>
 
@@ -85,21 +85,21 @@ function Features() {
 
                 
 
-                <div className={style.item}>
-                    <i className="fa-solid fa-utensils" style={{ color: 'white', fontSize: "70px" }}></i>
+                <div className={`${style.item} ${style.feature5}`}>
+                    <FaUtensils className={style.icons} />
                 </div>
 
-                <div className={style.item} onClick={chatBotHandler}>
-                    <FaRobot className="fa-solid fa-clapperboard" style={{ color: 'white', fontSize: "70px" }} />
+                <div className={`${style.item} ${style.feature6}`} onClick={chatBotHandler}>
+                    <FaRobot className={style.icons} />
                 </div>
 
-                <div className={style.item}>
-                    <i className="fa-solid fa-gamepad" style={{ color: 'white', fontSize: "70px" }}></i>
+                <div className={`${style.item} ${style.feature7}`}>
+                    <FaGamepad className={style.icons} />
                 </div>
 
             </div>
             {/* </Router> */}
-        </>
+        </div>
     )
 }
 
