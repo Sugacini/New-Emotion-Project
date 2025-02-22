@@ -34,6 +34,7 @@ body{
     align-items: center;
     font-size: 12px;
     background-color: #1877F2;
+    cursor: pointer;
 }
 
 .item1{
@@ -52,15 +53,16 @@ body{
     font-weight: bold;
     font-size: 2.5em;
     text-align: center;
+    background-size: cover;
 }
 
-.feature1 { top: 0%; left: 55%; transform: translate(-50%, 0);} 
-.feature2 { top: 20%; left: 90%; transform: translate(-50%, -50%);} 
-.feature3 { top: 60%; left: 100%; transform: translate(-50%, -50%);} 
-.feature4 { top: 100%; left: 70%; transform: translate(-50%, -100%);}
-.feature5 { top: 85%; left: 30%; transform: translate(-50%, -50%);} 
-.feature6 { top: 55%; left: 5%; transform: translate(-50%, -50%);} 
-.feature7 { top: 20%; left: 20%; transform: translate(-50%, -50%);} 
+.feature1 { top: -6%; left: 51%; transform: translate(-50%, 0);} 
+.feature2 { top: 24%; left: 87%; transform: translate(-50%, -50%);} 
+.feature3 { top: 59%; left: 92%; transform: translate(-50%, -50%);} 
+.feature4 { top: 100%; left: 69%; transform: translate(-50%, -100%);}
+.feature5 { top: 86%; left: 30%; transform: translate(-50%, -50%);} 
+.feature6 { top: 57%; left: 8%; transform: translate(-50%, -50%);} 
+.feature7 { top: 24%; left: 16%; transform: translate(-50%, -50%);} 
 
 /* img{
     width: 100%;
