@@ -4,7 +4,7 @@ import FirstPage from './bodyOfFirstPage.jsx';
 function HomePage() {
     return (
         <div>
-            <HeaderAndSideBar></HeaderAndSideBar>
+            {/* <HeaderAndSideBar></HeaderAndSideBar> */}
             <FirstPage></FirstPage>
         </div>
     )
