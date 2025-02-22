@@ -55,30 +55,35 @@ function Features() {
         <>
             <div className={style.featureContainer}>
 
-                <div className={style.item} onClick={musicHandler}>
+                <div className={`${style.item} ${style.feature1}`} onClick={musicHandler}>
                     <i className="fa-solid fa-music" style={{ color: 'white', fontSize: "70px" }}></i>
                 </div>
 
-                <div className={style.item} onClick={journelHandler}>
+                <div className={`${style.item} ${style.feature2}`} onClick={journelHandler}>
                     <i className="fa-solid fa-book" style={{ color: 'white', fontSize: "70px" }}></i>
                 </div>
 
-                <div className={style.item}>
+                {/* <div className={style.item}>
                     <i className="fa-solid fa-person-walking" style={{ color: 'white', fontSize: "70px" }}></i>
-                </div>
+                </div> */}
 
-                <div className={style.item} onClick={quotesHandler}>
+                <div className={`${style.item} ${style.feature3}`} onClick={quotesHandler}>
                 <i className="fa-solid fa-quote-right" style={{ color: 'white', fontSize: "70px" }}></i>
                     {/* <p className={style.feature}>Quotes</p> */}
                 </div>
 
-                {setImg.current?<div className={style.item1} style={{backgroundImage: `url(${setImg.current})`}}>
-                </div>:<div className={style.item1} style={{backgroundImage: `url(${setImg.current})`}}> {finalEmo1} </div>}
-                
-
-                <div className={style.item} onClick={storyHandler}>
+                <div className={`${style.item} ${style.feature4}`} onClick={storyHandler}>
                     <p className={style.feature}>Story</p>
                 </div>
+
+                {setImg.current?<div className={style.item1} style={{backgroundImage: `url(fear1.png)`}}>
+                </div>:<div className={style.item1} style={{backgroundImage: `url(${setImg.current})`}}> {finalEmo1} </div>}
+
+                {/* {setImg.current?<div className={style.item1} style={{backgroundImage: `url(${setImg.current})`}}>
+                </div>:<div className={style.item1} style={{backgroundImage: `url(${setImg.current})`}}> {finalEmo1} </div>} */}
+                
+
+                
 
                 <div className={style.item}>
                     <i className="fa-solid fa-utensils" style={{ color: 'white', fontSize: "70px" }}></i>

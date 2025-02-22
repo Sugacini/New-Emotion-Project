@@ -7,6 +7,9 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
 }
 
 .signUp{
@@ -14,6 +17,17 @@
     height: 100%;
     background-color: black;
     border-radius: 150px 20px 20px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.opac{
+    opacity: 0;
+    color: red;
+    font-size: 18px;
 }
 
 .signin{
@@ -21,6 +35,11 @@
     height: 100%;
     background-color: black;
     border-radius: 20px 150px 150px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
 }
 
 .loginPage{
@@ -46,14 +65,14 @@
     text-align: center;
     font-size: 4em;
     color: white;
-    margin-top: 36%;
+    /* margin-top: 36%; */
     font-weight: bolder;
 }
 
 .desc{
     width: 70%;
-    margin: auto;
-    margin-top: 5%;
+    /* margin: auto; */
+    /* margin-top: 5%; */
     text-align: center;
     font-size: 1.5em;
     color: white;
@@ -62,7 +81,7 @@
 .signUpBtn{
     width: 25%;
     height: 40px;
-    margin: 10% 0 0 39%;
+    /* margin: 10% 0 0 39%; */
     background-color: transparent;
     color: white;
     border: 1px solid white;
@@ -78,7 +97,7 @@
     text-align: center;
     font-size: 4em;
     color: black;
-    margin-top: 20%;
+    /* margin-top: 20%; */
     font-weight: bolder;
 }
 
@@ -86,14 +105,14 @@
     text-align: center;
     font-size: 4em;
     color: black;
-    margin-top: 12%;
+    /* margin-top: 12%; */
     font-weight: bolder;
 }
 
 .email{
     width: 70%;
     height: 60px;
-    margin: 5% 0 0 11%;
+    /* margin: 5% 0 0 11%; */
     border-radius: 10px;
     font-size: 23px;
     box-shadow: 3px 3px 8px rgb(201, 199, 199);
@@ -113,7 +132,7 @@
 .password{
     width: 70%;
     height: 60px;
-    margin: 5% 0 0 11%;
+    /* margin: 5% 0 0 11%; */
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     font-size: 23px;
@@ -133,7 +152,7 @@
 .name{
     width: 70%;
     height: 60px;
-    margin: 11% 0 0 11%;
+    /* margin: 11% 0 0 11%; */
     border-radius: 10px;
     font-size: 23px;
     box-shadow: 3px 3px 8px rgb(201, 199, 199);
@@ -154,7 +173,7 @@
     width: 25%;
     height: 40px;
     border: 2px solid black;
-    margin: 10% 0 0 37%;
+    /* margin: 10% 0 0 37%; */
     border-radius: 10px;
     background-color: transparent;
     font-weight: bold;
@@ -164,3 +183,8 @@
     background-color: rgb(246, 244, 244);
 }
 
+
+.errorMsg{
+    color: red;
+    font-size: 18px;
+}

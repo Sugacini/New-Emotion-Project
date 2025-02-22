@@ -3,7 +3,6 @@ function SideBarredAlbum({idx, imgUrl, name, setAlbum, selectedAlbumIdx}) {
     <div className="lengthyAlbumBox" style={(selectedAlbumIdx==idx)?{background:'#bcb9c9'}:null} onClick={()=>{
         setAlbum(idx);
     }}>
-        {console.log(imgUrl)}
         <img src={imgUrl} alt="img" className='smlAlbumImg'/>
         <div>
             <p>{name}</p>

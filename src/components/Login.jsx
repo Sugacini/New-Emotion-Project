@@ -8,6 +8,7 @@ function Login({change, setChange}){
 
     const userName = useRef();
     const userPassword = useRef();
+    const msgError = useRef();
 
     const[login, setLogin] = useState(true);
 
@@ -41,11 +42,12 @@ function Login({change, setChange}){
             if(!isEmail){
                 userName.current.style.border = "2px solid red";
                 userPassword.current.style.border="2px solid red";
+                msgError.current.textContent = "UserId or password is invalid";
 
-                setTimeout(() => {
-                    userName.current.style.border = "none";
-                    userPassword.current.style.border="none";
-                },2000)
+                // setTimeout(() => {
+                //     userName.current.style.border = "none";
+                //     userPassword.current.style.border="none";
+                // },2000)
             }
             
         }
@@ -63,6 +65,7 @@ function Login({change, setChange}){
                 <p className="signInHead">Sign In</p>
                 <input type="email" placeholder="Enter your UserId" className="email" required ref={userName}></input>
                 <input type="password" placeholder="Enter you password" className="password" required ref={userPassword}></input>
+                <p className="errorMsg" ref={msgError}></p>
                 <button onClick={signIn} className="signInBtn" value="signin">SIGN IN</button>
             </div>
         )

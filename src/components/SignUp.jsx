@@ -12,6 +12,7 @@ function SignUp({change, setChange}){
 
     const idValue = useRef();
     const passValue = useRef();
+    const account = useRef();
 
     const [uName, setName] = useState("");
     const [uPass, setPassword] = useState("");
@@ -46,13 +47,11 @@ function SignUp({change, setChange}){
                 if(res2[i].userUniqueId == email){
                     isEmail=false;
                     idValue.current.textContent = "This UserId is already exists";
-                    idValue.current.style.color = "red";
-                    idValue.current.style.margin = "3% 0 0 28%";
-                    idValue.current.style.fontSize = "18px";
+                    idValue.current.style.opacity = '1';
                     emailOfUser.current.style.border = " 2px solid red";
-                    setTimeout(() => {
-                        emailOfUser.current.style.border = "none";
-                    },2500)
+                    // setTimeout(() => {
+                    //     emailOfUser.current.style.border = "none";
+                    // },2500)
                 }
             }
             if(isEmail){
@@ -63,24 +62,20 @@ function SignUp({change, setChange}){
                 if(uPass.length < 8){
                     passwordOfUser.current.style.border = "2px solid red";
                     passValue.current.textContent = "Password must be 8 characters";
-                    passValue.current.style.color = "red";
-                    passValue.current.style.margin = "3% 0 0 25%";
-                    passValue.current.style.fontSize = "18px";
+                    passValue.current.style.opacity = '1';
 
-                    setTimeout(() => {
-                        passwordOfUser.current.style.border = "none";
-                    }, 2500)
+                    // setTimeout(() => {
+                    //     passwordOfUser.current.style.border = "none";
+                    // }, 2500)
                 }
                 if(uEmail.length < 6){
                     emailOfUser.current.style.border = "2px solid red";
                     idValue.current.textContent = "UserId must be 6 characters";
-                    idValue.current.style.color = "red";
-                    idValue.current.style.margin = "3% 0 0 25%";
-                    idValue.current.style.fontSize = "18px";
+                    idValue.current.style.opacity = '1';
 
-                    setTimeout(() => {
-                        emailOfUser.current.style.border = "none";
-                    }, 2500)
+                    // setTimeout(() => {
+                    //     emailOfUser.current.style.border = "none";
+                    // }, 2500)
                 }
                 
             }
@@ -112,10 +107,11 @@ function SignUp({change, setChange}){
             <div className="login">
                 <p className="signUpHead">Sign Up</p>
                 <input type="text" placeholder="Enter your name" className="name" ref={nameOfUser} required onChange={(e) => {setName(e.target.value)}}></input>
+                <p ref={idValue} className="opac">.</p>
                 <input type="email" placeholder="Enter your userId" className="email" ref={emailOfUser} required onChange={(e) => {setEmail(e.target.value)}}></input>
-                <p ref={idValue}></p>
+                <p ref={passValue} className="opac">.</p>
                 <input type="password" placeholder="Enter you password" className="password" ref={passwordOfUser} required onChange={(e) => {setPassword(e.target.value)}}></input>
-                <p ref={passValue}></p>
+                <p className="opac" ref={account}></p>
                 <button onClick={signUp1} className="signInBtn" value="signin">SIGN UP</button>
             </div>
             </>

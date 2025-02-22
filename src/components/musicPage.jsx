@@ -1,6 +1,4 @@
 import './musicPage.css'
-import { useLocation } from "react-router-dom";
-
 import HeaderAndSideBar from './headerWithSideBar';
 import AlbumBox from './AlbumBox';
 import SideBarredAlbum from './SideBarredAlbum';
@@ -11,12 +9,11 @@ import PlayButton from './PlayButton';
 import PauseButton from './PauseButton';
 
 import { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 var prevSong = "0";
 var finalEmo;
 var emojiImg;
-
-
 
 function decreseParentsWidth() {
   var element = document.querySelector('.mainOfMusic');
@@ -24,12 +21,11 @@ function decreseParentsWidth() {
 }
 
 async function dataReceiver() {
-  console.log(finalEmo);
   try {
     var response= await fetch('http://localhost:3000/emotions',{
       method:'POST',
       headers:{"Content-type":"application/json"},
-      body:JSON.stringify({emotion:finalEmo})})
+      body:JSON.stringify({emotion:'sad'})})
       
     var responseData= await response.json();    
     return responseData;
@@ -47,6 +43,7 @@ function MusicPage() {
   const data1 = (JSON.stringify(result.emo));
   finalEmo = data1.slice(1,data1.length-1);
   emojiImg = finalEmo+".png";
+
   useEffect(()=>{
     dataReceiver().then(res=>setData(res));
   },[])
@@ -57,9 +54,10 @@ function MusicPage() {
   const [canPlay, setPlayStatus] = useState('false');
   const [playFirst,setFirstPlay]=useState(false);
   const [resume,setResume]=useState(false);
-
+  const [timeBarValue,setBarValue] = useState(0);
 
   const audTag = useRef();
+  // const rangeBar = useRef();
   var artists;
   var songObjArr;
 
@@ -86,9 +84,9 @@ function MusicPage() {
             <img src={emojiImg} alt="" className='emojiImage' />
           </div>
         : <div id='musicsLeft' className='leftOfMainMusic'>
-            <img alt="" src={emojiImg} className='emojiImage' ref={setImg}/>
+            <img src={emojiImg} alt="" className='emojiImage' ref={setImg}/>
             <div>
-              {data.map((album, idx) => (idx < 9) ? <SideBarredAlbum idx={idx} imgUrl={album.data.image[0].url}  name={album.data.name} setAlbum={setAlbum} selectedAlbumIdx={selectedAlbumIdx}/> : null)}
+              {data.map((album, idx) => (idx < 9) ? <SideBarredAlbum idx={idx} imgUrl={album.data.image[0].url} name={album.data.name} setAlbum={setAlbum} selectedAlbumIdx={selectedAlbumIdx}/> : null)}
             </div>
           </div>}
         <div className='mainOfMusic'>
@@ -98,9 +96,8 @@ function MusicPage() {
 
           <div className={addElement ? 'musicBottomSec' : 'mainsBottomSec'}>
 
-
-            {!addElement ? (data!=null)? data.map((album, idx) => 
-              (idx < 9) ? <AlbumBox name={album.data.name} key={idx} idx={idx} imgUrl={album.data.image[0].url} setState={setState} setAlbum={setAlbum} description={album.data.description}></AlbumBox> :null):<p>Choosing the right ones for you!</p> : null }
+            {!addElement ? (data!=null)? data.map((album, idx) =>      
+              (idx < 9) ? <AlbumBox name={album.data.name} key={idx} idx={idx} imgUrl={album.data.image[2].url} setState={setState} setAlbum={setAlbum} description={album.data.description}></AlbumBox> :null):<p>Choosing the right ones for you!</p> : null }
 
             {addElement ? <div className='titleBox'>
               {!resume && (canPlay==true)?<PauseButton playFirst={playFirst} decreseParentsWidth={decreseParentsWidth} setFirstPlay={setFirstPlay} canPlay={canPlay} setPlayStatus={setPlayStatus} setResume={setResume} resume={resume}/>
@@ -113,19 +110,21 @@ function MusicPage() {
             {addElement ? data[selectedAlbumIdx].data.songs.map((song, idx) => {
               artists = song.artists.all.reduce((acc, val) => acc + val.name + ", ", "");
               artists = (artists.length > 40) ? artists.slice(0, 40) + "..." : artists;       
-              songObjArr= data[selectedAlbumIdx].data.songs;
-              console.log(songObjArr);
-              
+              songObjArr= data[selectedAlbumIdx].data.songs;              
               
               
 
-              return <SongBox idx={idx + 1} imgUrl={song.image[0].url} name={song.name} artists={artists} production={song.label} duration={song.duration} language={song.language} setSelectSong={setSelectSong} songSelectedIdx={songSelectedIdx} setPlayStatus={setPlayStatus} canPlay={canPlay} playFirst={playFirst} setFirstPlay={setFirstPlay} resume={resume} setResume={setResume} decreseParentsWidth={decreseParentsWidth}/>
+              return <SongBox idx={idx + 1} imgUrl={song.image[0].url} name={song.name} artists={artists} production={song.label} duration={song.duration} language={song.language} setSelectSong={setSelectSong} songSelectedIdx={songSelectedIdx} setPlayStatus={setPlayStatus} canPlay={canPlay} playFirst={playFirst} setFirstPlay={setFirstPlay} resume={resume} setResume={setResume} decreseParentsWidth={decreseParentsWidth} setBarValue={setBarValue}/>
             }) : null}
             {(prevSong != songSelectedIdx) ? console.log('fromCommand') : null}
             {(prevSong != songSelectedIdx) ? afterSelectionOfSong() : null}
 
+            {/* {addElement?audTag.current.timeBarValue=:null} */}
             {addElement ?
-            <audio ref={audTag} onEnded={()=>setSelectSong((songSelectedIdx!=(songObjArr.length-1))?songSelectedIdx+1:0)}>
+            <audio ref={audTag} onTimeUpdate={()=>setBarValue(audTag.current.currentTime)} onEnded={()=>{
+              setSelectSong((songSelectedIdx!=(songObjArr.length-1))?songSelectedIdx+1:0)
+              setBarValue(0);
+              }}>
               <source src={songObjArr[songSelectedIdx].downloadUrl[0].url} type="audio/mp4" />
             </audio>
             :null}
@@ -133,7 +132,7 @@ function MusicPage() {
 
           </div>
         </div>
-        {playFirst?<MainMusicRight canPlay={canPlay} setPlayStatus={setPlayStatus} resume={resume} setResume={setResume} songObjArr={songObjArr} totalSongsNum={songObjArr.length} songSelectedIdx={songSelectedIdx} setSelectSong={setSelectSong}></MainMusicRight>:null}
+      {playFirst?<MainMusicRight canPlay={canPlay} setPlayStatus={setPlayStatus} resume={resume} setResume={setResume} songObjArr={songObjArr} totalSongsNum={songObjArr.length} songSelectedIdx={songSelectedIdx} setSelectSong={setSelectSong} duration={data[selectedAlbumIdx].data.songs[songSelectedIdx].duration} timeBarValue={timeBarValue} setBarValue={setBarValue} audTag={audTag}></MainMusicRight>:null}
       </div>
 
     </>
