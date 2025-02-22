@@ -1,4 +1,4 @@
-import './headerComponent.css'
+// import './headerComponent.css'
 function HeaderComponent({showStatus,setShow}){
 
 

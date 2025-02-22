@@ -1,3 +1,111 @@
+/* home page */
+
+.firstPageBody{
+    height: 740px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+}
+
+.bodyChild{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    width: 40%;
+}
+
+.introLines{
+    font-size:56px;
+}
+
+.introSentence{
+    font-size: 20px;
+    line-height: 1.6;
+    border-bottom: none;
+    padding: 0px;
+}
+
+.gif{
+    height: 100%;
+    width: 100%;
+}
+
+.bodyChild:last-child{
+    align-self: center;
+
+}
+
+.bodyChild:first-child{
+    align-self: center
+
+}
+
+.started{
+    background-color: #7CABF7;
+    padding: 10px;
+    font-size: 22px;
+    font-weight:600;
+    border-radius: 20px;
+    transform: rotate(17deg);
+    width: 240px;
+    /* opacity: .5; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+
+
+    /* margin-top: 50px; */
+}
+
+.startedBtn{
+    background-color: #0865FE;
+    width: 180px;
+    border-radius: 20px;
+    height: 50px;
+    border: none;
+    font-size: 22px;
+    font-weight:600;
+    color: aliceblue;
+    position: relative;
+    transition: width .8s ease;
+}
+
+.startedBtn::before{
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    height: 50px;
+    width: 200px;
+    transform: rotate(17deg);
+    background-color: #5d97f5;
+    z-index: -10;
+    top: 0px;
+    left: -10px;
+
+    border-radius: 20px;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.startedBtn:hover::before{
+    transform: rotate(180deg);
+    left: 0px;
+}
+
+.startedBtn:hover{
+    width: 200px;
+}
+
+.rightArrow{
+    height: 20px;
+    margin-left: 20px;
+}
+
+/* header component */
+
 *{
     margin: 0;
     padding: 0;
@@ -15,7 +123,6 @@ body {
     background-repeat: no-repeat;
     background-position: 45% 34%, 45% 61%;
     background-size: 74% 115%, 84% 127%;
-    /* padding: 0px 200px; */
     height:100vh;
     padding-top: 20px;
 }
@@ -31,12 +138,10 @@ input::placeholder{
 
 
 .header{
-    /* border-radius: 23px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 50px;
-    /* margin-top: 50px; */
     height: 70px;
     background-color: #fffefe;
     width: 100%;
@@ -48,7 +153,6 @@ input::placeholder{
     gap: 20px;
     font-size: 27px;
     align-items: center;
-    /* margin-left: 40px; */
 }
 
 .logo{
