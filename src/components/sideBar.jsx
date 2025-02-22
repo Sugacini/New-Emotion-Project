@@ -9,10 +9,8 @@ function SideBar({showStatus}) {
                 <p>Configurations</p>
                 <p>Log out</p>
             </div>
-            
         )
     }
-
 }
 
 export default SideBar;

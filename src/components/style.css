@@ -1,4 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* home page */
+
+.homePageCont{
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .firstPageBody{
     height: 740px;
@@ -11,6 +24,7 @@
 .bodyChild{
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 40px;
     width: 40%;
 }
@@ -29,16 +43,7 @@
 .gif{
     height: 100%;
     width: 100%;
-}
-
-.bodyChild:last-child{
-    align-self: center;
-
-}
-
-.bodyChild:first-child{
-    align-self: center
-
+    border-radius: 10px;
 }
 
 .started{
@@ -105,12 +110,6 @@
 }
 
 /* header component */
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 :root{
     --primary-color:#ffffff;

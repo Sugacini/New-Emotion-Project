@@ -3,7 +3,7 @@ function FirstPageBody() {
     const navigate = useNavigate();
 
     return(
-        <>
+        <div className='homePageCont'>
             <div className="firstPageBody">
                 <div className='bodyChild'>
                     <h1 className='introLines'>Mood based Suggestions</h1>
@@ -17,7 +17,7 @@ function FirstPageBody() {
                 </div>
             </div>
 
-        </>
+        </div>
     )
 }
 
