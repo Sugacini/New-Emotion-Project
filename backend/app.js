@@ -7,7 +7,7 @@ const cors=require("cors");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "suga@123",
+    password: "your_password1",
     database: "Emotions",
 });
 
@@ -52,6 +52,8 @@ app.get("/video", (req, res) => {
 
 app.get("/addUser",(req,res)=>{
     connection.query("select userUniqueId,password from users", (err,result) => {
+        console.log('yes');
+        
         if(!err){
             res.status = 200;
             console.log(result);
