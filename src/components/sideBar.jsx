@@ -1,5 +1,3 @@
-import './sideBar.css'
-
 function SideBar({showStatus}) {
     if (showStatus) {
         return(

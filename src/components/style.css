@@ -215,3 +215,21 @@ input::placeholder{
 .profile{
     cursor: pointer;
 }
+
+/* sideBar */
+
+:root{
+    --secondary-color:#166d30;
+}
+
+.sideBar{
+    background: var(--secondary-color);
+    width: fit-content;
+    border-radius:20px ;
+    display: flex;
+    flex-direction: column;
+    color: #1C5A7C;
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+}
