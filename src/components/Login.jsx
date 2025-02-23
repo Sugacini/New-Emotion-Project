@@ -64,9 +64,13 @@ function Login({change, setChange}){
             <div className="login">
                 <p className="signInHead">Sign In</p>
                 <input type="email" placeholder="Enter your UserId" className="email" required ref={userName}></input>
-                <input type="password" placeholder="Enter you password" className="password" required ref={userPassword}></input>
+                <input type="password" placeholder="Enter you password" className="password" required ref={userPassword} onKeyDown={(event) => {
+                    if(event.key == "Enter"){
+                        signIn();
+                    }
+                }}></input>
                 <p className="errorMsg" ref={msgError}></p>
-                <button onClick={signIn} className="signInBtn" value="signin">SIGN IN</button>
+                <button onClick={signIn} className="signInBtn" value="signin" >SIGN IN</button>
             </div>
         )
     }
