@@ -88,6 +88,7 @@
     border: 1px solid white;
     border-radius: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .signUpBtn:hover{
@@ -179,6 +180,7 @@
     background-color: transparent;
     font-weight: bold;
     color: #1877F2;
+    cursor: pointer;
 }
 
 .signInBtn:hover{

@@ -49,6 +49,10 @@ function Features() {
         navigate("/chatBot", { state: { emo1: (finalEmo) } });
     }
 
+    function foodHandler() {
+        navigate("/food", { state: { emo: (finalEmo) } });
+    }
+
     console.log(setImg.current, emoImg, data1);
     return (
 
@@ -86,7 +90,7 @@ function Features() {
 
 
 
-                <div className={`${style.item} ${style.feature5}`} title="Food">
+                <div className={`${style.item} ${style.feature5}`} title="Food" onClick={foodHandler}>
                     <FaUtensils className={style.icons} />
                 </div>
 

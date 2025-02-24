@@ -75,6 +75,7 @@
     color: aliceblue;
     position: relative;
     transition: width .8s ease;
+    cursor: pointer;
 }
 
 .startedBtn::before{

@@ -445,9 +445,266 @@
     cursor: pointer;
 }
 
+.recipeOuter{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #0072ff; */
+}
+
+.recipeSideBar{
+    width: 20%;
+    height: 1070px;
+    background-color: #0072ff;
+    position: fixed;
+}
+
+.recipes{
+    width: 78%;
+    height: auto;
+    /* background-color: #FFFFFF; */
+    flex-grow: 1;
+}
+
+.foodHead{
+    width: 100%;
+    height: 900px;
+    /* border: 1px solid; */
+    background-image: url("/foodHome1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.foodHead1{
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Passion One", serif;
+    font-size: 15em;
+    letter-spacing: 20px;
+    /* color: white; */
+    font-weight: bolder;
+}
+
+.fooBack{
+    width: 96%;
+    height: 120px;
+}
+
+.insertFood{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 5%;
+    column-gap: 5%;
+    row-gap: 10%;
+}
+
+.smallDiv{
+    width: 20%;
+    height: 50%;
+    /* border: 1px solid; */
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px rgb(50, 50, 96);
+}
+
+.recipeImg{
+    width: 100%;
+    height: 85%;
+    border-radius: 10px 10px 0 0;
+}
+
+.recipeName{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+    background-color: #0072ff;
+    border-radius: 0 0 10px 10px;
+}
+
+.smallDiv:hover{
+    scale: 1.06;
+}
+
+.singleFoodOuter{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.foodBack{
+    width: 90%;
+    height: 50px;
+}
+
+.iconBack{
+    width: 7%;
+    height: 100%;
+    border-radius: 15px;
+    border: 1px solid;
+    background-color: #0072ff;
+    /* border-radius: 50%; */
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.iconBack1{
+    width: 6%;
+    height: 93%;
+    border-radius: 50%;
+    border: 1px solid;
+    background-color: #0072ff;
+    /* border-radius: 50%; */
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.singleFoodContainer{
+    width: 25%;
+    height: 900px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.imageWithName{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.descript{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    padding: 2%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.setDescHead{
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.imageOuter{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.foodImg{
+    width: 100%;
+    height: 85%;
+}
+
+.foodImg1{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.foodName{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+    background-color: #0072ff;
+}
+
+.setDesc{
+    width: 90%;
+    height: auto;
+    font-size: 1.5em;
+    line-height: 35px;
+}
 
 
 
+/* .descriptOuter{
+    width: 90%;
+    height: 45%;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.nameFood{
+    width: 100%;
+    height: 15%;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.setFoodName{
+    width: 85%;
+    height: 40%;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+}
+
+.setName1{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.foodDesc{
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 
 
