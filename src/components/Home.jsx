@@ -15,6 +15,7 @@ function Home() {
     const srcVal = useRef();
     const canvasDetect = useRef();
     const detectMessage = useRef();
+    const [detectClicked, setDetectClicked] = useState(false);
     let localStream;
 
     async function uploadFiles() {
@@ -133,7 +134,7 @@ function Home() {
             const tracks = srcVal.current.srcObject.getTracks();
             tracks.forEach(track => track.stop());
             navigate("/features", { state: { findEmo: (findEmotion.current) } });
-        }, 5500);
+        }, 4500);
 
     }
     return (
