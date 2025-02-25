@@ -95,7 +95,7 @@ function Login({setLog, setWay, wayToLogin}) {
     return (
         <div className="loginBox">
             {(wayToLogin=='login')?
-            <form action="" className="signUpForm" onSubmit={sigUpHandler}>
+            <form action="" className="signUpForm" onSubmit={loginHandler}>
             <h3 className="logHeading">Login</h3>
             <div className="inputParent">
                 {userIdErr?<p className="errMsg">{userIdErr}</p>:<p className="opac">.</p>}
@@ -112,7 +112,7 @@ function Login({setLog, setWay, wayToLogin}) {
             <p className="underSmlLoginTxt" onClick={()=>setWay("SignUp")}>or Get Registered</p>
         </form>
         :
-        <form action="" className="signUpForm" onSubmit={loginHandler}>
+        <form action="" className="signUpForm" onSubmit={sigUpHandler}>
                 <h3 className="logHeading">Sign up</h3>
                 <div className="inputParent">
                     <input className="inputBoxes" type="text" name="userName" ref={name} required/>

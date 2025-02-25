@@ -467,6 +467,7 @@ input::placeholder{
     justify-content: center;
     align-items: center;
     padding: 10px;
+    padding-bottom: 13px;
     color: #216AAE;
     cursor: pointer;
 }
@@ -478,6 +479,7 @@ input::placeholder{
     justify-content: center;
     align-items: center;
     padding: 10px;
+    padding-bottom: 13px;
     color: white;
     background-color: #216AAE;
     cursor: pointer;
@@ -524,7 +526,7 @@ input::placeholder{
 }
 
 .errMsg{
-    color: red;
+    color: #740202;
 }
 
 .underSmlLoginTxt:hover{
