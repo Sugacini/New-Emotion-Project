@@ -149,7 +149,9 @@ function Quotes(){
 
     const location = useLocation();
     const data = location.state;
+    console.log(data);
     const data1 = (JSON.stringify(data.emo))
+    console.log(data1)
     const finalEmo = data1.slice(1,data1.length-1);
     console.log(finalEmo);
 

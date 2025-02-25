@@ -31,6 +31,7 @@ function Food() {
     const location = useLocation();
     const data = location.state;
     // let data1;
+    // var data1 = "";
     // if(data != null){
         const data1 = data.emo;
         console.log(data1);
@@ -57,7 +58,7 @@ function Food() {
                       return <div key={index} className="smallDiv" onClick={(e) => {
                         for(let i=0; i<isFood.length; i++){
                             if(e.target.id == i){
-                                navigate("/singleFood", {state: {idOfFood: isFood[i].meals[0].idMeal}});
+                                navigate("/singleFood", {state: {idOfFood: isFood[i].meals[0].idMeal, emo1: data1}});
                                 console.log(isFood[i].meals[0])
                                 break;
                             }

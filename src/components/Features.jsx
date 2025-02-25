@@ -14,6 +14,7 @@ function Features() {
     const [emoImg, setEmoImg] = useState("");
     const location = useLocation();
     const data = location.state;
+    console.log(data);
     const data1 = (JSON.stringify(data.findEmo));
     const finalEmo = data1.slice(1, data1.length - 1);
     const finalEmo1 = finalEmo.toUpperCase();

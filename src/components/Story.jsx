@@ -119,12 +119,10 @@ function Story(){
 
     const navigate = useNavigate();
     const location = useLocation();
-    const storedData = JSON.parse(localStorage.getItem("emoData"));
-    console.log(storedData);
-    const data = location.state || { emo: storedData };
-    // const data = location.state;
-    // const data1 = JSON.stringify(data);
-    console.log(data);
+    const data1 = location.state;
+    console.log(data1);
+    const data2 = data1.emo;
+    console.log(data2);
 
     async function getStory(){
         console.log("Enter");
@@ -149,10 +147,10 @@ function Story(){
     return(
         <div className="storyOuter">
             <div className="stoHead">
-                <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: storedData}})}}>
+                <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: data2}})}}>
                     <FaLeftLong style={{fontSize: "50px"}}></FaLeftLong>
                 </div>
-                <div className="sto" onClick={() => {navigate("/quotes")}}>
+                <div className="sto" onClick={() => {navigate("/quotes", {state: {emo: data2}})}}>
                     <FaQuoteRight className="iconSize"></FaQuoteRight>
                 </div>
             </div>

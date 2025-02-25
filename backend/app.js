@@ -22,7 +22,7 @@ var allEmotion={
 }
 
 // var foodId = [52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834, 52842, 52848, 52855, 52873, 52874, 52878, 52891, 52894, 52904, 52913, 52914, 52928, 52940, 52952, 52959, 52961, 52965, 52979, 52995, 52997, 53013, 53018, 53036, 53053, 53060, 53068, 53069, 53070, 53071, 53076, 53078, 53080]
-var foodId = [52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834, 52842, 52848, 52855, 52873]
+var foodId = [[52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834, 52842, 52848, 52855, 52873], [52874, 52878, 52891, 52894, 52904, 52913, 52914, 52928, 52940, 52952, 52959, 52961], [52965, 52979, 52995, 52997, 53013, 53018, 53036, 53053, 53060, 53068, 53069, 53070], [53071, 53076, 53078, 53080,52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834]]
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -188,10 +188,13 @@ app.post('/emotions',async (req,res)=>{
 app.get("/food", async (req, res) => {
     let res1;
     let result;
+    let randomNum = Math.floor(Math.random() * 4);
+    console.log(randomNum);
+    let foodIdArr = foodId[randomNum]
     // console.log(res);
     try{
         var resData = await Promise.all(
-            foodId.map( async (foodIds) => {
+            foodIdArr.map( async (foodIds) => {
                 console.log(foodIds);
             try{
                 result = await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+foodIds);
