@@ -6,7 +6,7 @@ function MainMusicRight({canPlay, setPlayStatus, resume, setResume, songObjArr, 
         
         <div className="rightOfMusic">
             <div className="songImgAndControls">
-                <div className="songImg" style={{background: `linear-gradient(rgba(255, 255, 255, 0) 60%,black 100%), url(${songObjArr[songSelectedIdx].image[2].url})`, backgroundSize:"cover"}}></div>
+                <div className="songImg" style={{ backgroundSize :'330px 100%', background: `linear-gradient(rgba(255, 255, 255, 0) 60%,black 100%), url(${songObjArr[songSelectedIdx].image[2].url})`}}></div>
                 <div className="bottomBox">
                     <input type="range" id="timeProgressBar" value={timeBarValue} min={0} max={duration} onChange={(e)=>{
                         audTag.current.currentTime=e.target.value}}/>

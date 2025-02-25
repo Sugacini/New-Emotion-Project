@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { FaLeftLong } from "react-icons/fa6";
 import Story from "./Story";
+import Header from "./Header";
 
 let count = 0;
 
@@ -49,7 +50,10 @@ function Quotes(){
     }
 
     return(
-        <div className="quotesDiv">
+        <>
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+            <div className="quotesDiv">
+
             {console.log(finalEmo)}
             <div className="naviHead" >
                 <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: finalEmo, idOfUser: userId}})}}>
@@ -80,6 +84,8 @@ function Quotes(){
             </div>
             <button className="nextQuoBtn" onClick={nextQuoHandler}>NEXT</button>
         </div>
+        </>
+        
     )
 }
 

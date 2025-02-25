@@ -1,18 +1,24 @@
 import { useState } from "react";
 import Login from './Login.jsx'
 import SideBar from "./sideBar.jsx";
+import { useNavigate } from "react-router-dom";
 
-function Header({setUserId, userUniqueId, loginBtn={loginBtn}}) {
+function Header({setUserId, userUniqueId, loginBtn={loginBtn}, backTo, obj}) {
     const [loggedIn, setLog] = useState(false);
     const [isLogCLicked, setLogClicked] = useState(false);
     const [wayToLogin, setWay] = useState(null);
     const [userIconCliked,setUIconClick] = useState(false);
+    const navigate = useNavigate();
     return (
         <div className="header">
-            <div className="headersLeft">
+            {backTo?<div className="headersLeft" onClick={()=>navigate("/"+backTo, obj)} style={{cursor:'pointer'}}>
                 <img src="logo4.png" alt="" className="logo" />
                 <h3>UnarvAI</h3>
-            </div>
+            </div>:<div className="headersLeft">
+                <img src="logo4.png" alt="" className="logo" />
+                <h3>UnarvAI</h3>
+            </div>}
+            
 
             {/* <i NamclassName="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> */}
             {console.log('userUniqueId : ',userUniqueId)}

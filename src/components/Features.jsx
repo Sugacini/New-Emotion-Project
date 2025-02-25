@@ -11,8 +11,6 @@ import { useEffect } from "react";
 let count = 0;
 
 function Features() {
-
-
     const [emoImg, setEmoImg] = useState("");
     const [userUniqueId, setUserId] = useState(null);
     const [featureClicked, setFeatureClicked] = useState(false);
@@ -76,6 +74,10 @@ function Features() {
         // navigate("/food", { state: { emo: (finalEmo) , idOfUser: userUniqueId } });
     }
 
+    // function backHome(params) {
+    //     return navigate("/home");
+    // }
+
     useEffect(()=>{uId?setUserId(uId):null},[])
 
     console.log(setImg.current, emoImg, data1);
@@ -83,8 +85,8 @@ function Features() {
 
         <div className={style.featureOuter} >
             <div className={style.featureHead}>
-                {/* {uId?setUserId(uId):null} */}
-                <Header userUniqueId={userUniqueId} setUserId={setUserId} loginBtn={loginBtn}/>
+                {console.log('userUniqueId : ',userUniqueId)}
+                <Header userUniqueId={userUniqueId} setUserId={setUserId} loginBtn={loginBtn} backTo={"home"} obj={{state: {emo: (finalEmo), idOfUser: userUniqueId }}}/>
                 {/* <div className={style.backIcon} onClick={() => {navigate("/home")}}>
                     <FaLeftLong className={style.leftIcon}></FaLeftLong>
                 </div> */}

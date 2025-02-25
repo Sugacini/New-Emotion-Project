@@ -1,7 +1,7 @@
 .wholeMusicPage{
     display: flex;
     justify-content: space-evenly;
-    height: 959px;
+    height: 970px;
     align-items: center;
     padding-top: 40px;
 }

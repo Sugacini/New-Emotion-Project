@@ -2,6 +2,7 @@ import style from "./Journel.module.css";
 import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
+import Header from "./Header";
 
 function JournelLogo() {
 
@@ -48,6 +49,8 @@ function JournelLogo() {
 
     return (
         <>
+            {/* <Header userUniqueId={userId} setUserId={null} loginBtn={null}/> */}
+
             <div className={style.journelHeader}>
                 <div className={style.logo}>
                     <div className={style.logo1}>

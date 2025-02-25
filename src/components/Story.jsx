@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaQuoteRight, FaLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Header from "./Header";
 
 let count = 0;
 
@@ -41,7 +42,10 @@ function Story(){
     console.log(count);
 
     return(
-        <div className="storyOuter">
+        <>
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+            <div className="storyOuter">
+
             <div className="stoHead">
                 <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: data2, idOfUser: userId}})}}>
                     <FaLeftLong style={{fontSize: "50px"}}></FaLeftLong>
@@ -64,6 +68,8 @@ function Story(){
             <div className="moral">Moral: {sMoral}</div>
             <button className="nextStory" onClick={getStory}>Next Story</button>
         </div>
+        </>
+        
     )
 }
 

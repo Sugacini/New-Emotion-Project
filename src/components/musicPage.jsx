@@ -7,6 +7,7 @@ import SongBox from './SongBox';
 import MainMusicRight from './MainMusicRight';
 import PlayButton from './PlayButton';
 import PauseButton from './PauseButton';
+import Header from './Header';
 
 import { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -37,6 +38,8 @@ async function dataReceiver(emotionEmoji) {
 }
 
 function MusicPage() {
+
+
   const setImg = useRef();
   const location = useLocation();
   const result = location.state;
@@ -82,7 +85,10 @@ function MusicPage() {
   return (
     <>
       {/* <HeaderAndSideBar /> */}
-      
+
+  <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+
+
       <div className='wholeMusicPage'>
         {selectedAlbumIdx==null?<div id='musicsLeft'>
             <img src={emojiImg} alt="" className='emojiImage' />

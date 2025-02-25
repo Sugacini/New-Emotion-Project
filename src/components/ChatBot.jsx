@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import ChatSpace from './ChatSpace';
 import ChatFooter from './ChatFooter';
 import { useLocation } from 'react-router-dom';
+import Header from './Header';
 
 
 function ChatBot() {
@@ -62,7 +63,10 @@ function ChatBot() {
 
 return (
     <div className='chatContainer'>
+
         <div className='fullPageOfChat'>
+        <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+
             <div className='chatHeader'>
                 <FaArrowLeft className='back' onClick={(e) =>navigate("/features",{ state: { findEmo: (finalEmo) , idOfUser: userId} })}/>
                 <p>Chat bot</p>

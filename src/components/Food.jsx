@@ -4,6 +4,7 @@ let count = 0;
 import { useNavigate } from "react-router-dom";
 import { FaLeftLong } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
+import Header from "./Header";
 
 async function foodSet() {
   try{
@@ -43,7 +44,11 @@ function Food() {
     }, [])
 
     return (
+      <>
+      <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+
         <div className="recipeOuter">
+
             <div className="recipes">
                 <div className="foodHead">
                     <div className="fooBack" onClick={() => {navigate("/features", {state: {findEmo: data1, idOfUser: userId}})}}>
@@ -73,6 +78,7 @@ function Food() {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
