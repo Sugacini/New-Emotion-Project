@@ -72,6 +72,7 @@
     font-size: 1.2em;
     color: white;
     border: none;
+    cursor: pointer;
     /* background: linear-gradient(to right, #ff00ff, #ffcc00); */
     background: linear-gradient(to right, #00c6ff, #0072ff);
 }
@@ -283,29 +284,34 @@
     align-items: center;
     gap: 20px;
     font-size: 35px;
+    width: 100%;
 }
 
 .fullPageOfChat{
-    background-color: rgb(255, 255, 255);
-    width: 500px;
-    height: 800px;
+    /* background-color: rgb(255, 255, 255); */
+    width: 1920px;
+    /* height: 800px;800px */
+    height: 100vh;
     padding: 10px 40px;
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
 }
 
 .back{
     font-size: 25px;
+    cursor: pointer;
 }
 
 .chatSpace{
     height: 80%;
-    background-color:#F2F3F7;
-    border-bottom: 1px solid #e7e5e5;
-    border-top: 1px solid #e7e5e5;
+    /* background-color:#F2F3F7; */
+    /* border-bottom: 1px solid #e7e5e5;
+    border-top: 1px solid #e7e5e5; */
+    width: 720px;
     display: flex;
     flex-direction: column;
     padding: 20px 10px;
@@ -347,9 +353,12 @@
     border-radius: 15px;
     border-top-left-radius: 2px;
     height: fit-content;
+    max-width: 500px;
+    line-height: 30px;
 }
 
 .chatFooter{
+    width: 720px;
     display: flex;
     justify-content: space-between;
 }
@@ -361,19 +370,20 @@
     padding-left: 10px;
     width: 85%;
     background-color: #F2F3F7;
-    margin: 0;
 }
 
 .sendButton{
     border-radius: 50%;
     border: none;
     font-size: 20px;
-    padding: 8px 12px;
     background-color: #5a9bfd;
     color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
 }
 
 .chatContainer{
@@ -500,22 +510,30 @@
 
 .insertFood{
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 5%;
-    column-gap: 5%;
-    row-gap: 10%;
+    /* column-gap: 5%; */
+    row-gap: 50px;
+
 }
 
 .smallDiv{
-    width: 20%;
-    height: 50%;
+    width: 350px;
+    height: 450;
     /* border: 1px solid; */
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 5px 5px 8px rgb(50, 50, 96);
+    box-shadow: 5px 5px 12px rgb(0 0 0 / 42%);
+    opacity: .8;
+    transition: scale .5s ease,opacity .5s ease ;
+}
+
+.smallDiv:hover{
+    scale: 1.06;
+    opacity: 1;
 }
 
 .recipeImg{
@@ -536,17 +554,15 @@
     border-radius: 0 0 10px 10px;
 }
 
-.smallDiv:hover{
-    scale: 1.06;
-}
-
 .singleFoodOuter{
     width: 100%;
-    height: 1000px;
+    height: aut0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    padding-bottom: 10%;
 }
 
 .foodBack{
@@ -583,11 +599,13 @@
 }
 
 .singleFoodContainer{
-    width: 25%;
-    height: 900px;
+    width: 40%;
+    height: auto;
     /* border: 1px solid; */
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     background-color: white;
     border-radius: 10px;
 }
@@ -632,7 +650,8 @@
 
 .foodImg{
     width: 100%;
-    height: 85%;
+    height: 500px;
+    /* border: 1px solid; */
 }
 
 .foodImg1{
@@ -643,13 +662,14 @@
 
 .foodName{
     width: 100%;
-    height: 15%;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 2.5em;
     color: white;
     background-color: #0072ff;
+    border-radius: 10px 10px 0 0;
 }
 
 .setDesc{
@@ -659,7 +679,51 @@
     line-height: 35px;
 }
 
+.setImg{
+    width: 100%;
+    height: 100%;
+}
 
+.ingrediants{
+    width: 100%;
+    height: auto;
+    /* padding-left: 7%; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    /* border: 1px solid; */
+}
+
+.ingreHead{
+    font-size: 3em;
+    font-weight: bolder;
+    color: #0072ff;
+    padding-bottom: 2%;
+    padding-top: 5%;
+}
+
+.ingreValues{
+    font-size: 1.5em;
+    padding-left: 7%;
+    line-height: 55px;
+}
+
+.instruction{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid; */
+    font-size: 1.5em;
+    line-height: 55px;
+}
+
+.instruHead{
+    font-size: 2em;
+    font-weight: bolder;
+    color: #0072ff;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
 
 /* .descriptOuter{
     width: 90%;
@@ -706,6 +770,25 @@
     align-items: center;
 } */
 
+.bookOuter{
+    width: 100%;
+    height: 98vh;
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bookSideBar{
+    width: 25%;
+    height: 100%;
+    background-color: #0072ff;
+}
+
+.bookContainer{
+    width: 75%;
+    height: 100%;
+    background-color: #5a9bfd;
+}
 
 
 

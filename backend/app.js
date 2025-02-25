@@ -21,6 +21,9 @@ var allEmotion={
     fear: [4770633, 858957013, 79752572, 85233911, 793219647, 47119659, 696047329, 84621025, 79785694 ],
 }
 
+// var foodId = [52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834, 52842, 52848, 52855, 52873, 52874, 52878, 52891, 52894, 52904, 52913, 52914, 52928, 52940, 52952, 52959, 52961, 52965, 52979, 52995, 52997, 53013, 53018, 53036, 53053, 53060, 53068, 53069, 53070, 53071, 53076, 53078, 53080]
+var foodId = [52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834, 52842, 52848, 52855, 52873]
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -29,11 +32,20 @@ app.use(express.static(pubDir));
 
 
 app.use(cors({
-    origin: "http://localhost:5174", 
+    origin: "http://localhost:5173", 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, 
 }));
 
+
+// connection.connect((err) =>{
+//     if(err){
+//         console.log("Error",err);
+//     }
+//     else{
+//         console.log("connected Mysql");
+//     }
+// })
 
 connection.connect((err) =>{
     if(err){
@@ -41,7 +53,63 @@ connection.connect((err) =>{
     }
     else{
         console.log("connected Mysql");
+        connection.query('create database if not exists UnarvAI;');
+        connection.query('use UnarvAI;');
+        connection.query('create table if not exists UnarvAIUsers(IdNumber int primary key auto_increment,userId varchar(100) , userName varchar(100), password varchar(100));');
     }
+})
+
+app.post("/userIdCheck",(req,res)=>{
+    var userId = req.body.userId
+    console.log(userId);
+    
+    connection.query('select count(*) as total from UnarvAIUsers where userId = ?',[userId], (err,result) => {
+        console.log('yes');
+        if(!err){
+            res.status = 200;
+            console.log(result);
+            
+            console.log(result[0].total);
+            
+            console.log(result[0].total==0);
+            
+            res.send(result[0].total==0);
+        }
+        else{
+            console.log("Throw error", err);
+        }
+    })
+})
+
+app.post("/addAccount",(req,res)=>{
+    var userId = req.body.userId;
+    var password = req.body.password;
+    var userName = req.body.userName;
+    console.log(password);
+    
+    connection.query('insert into UnarvAIUsers (userId, userName, password) values (?,?,?)',[userId, userName, password], (err,result) => {
+        if(!err){
+            res.status = 200;
+            res.send("added succesfully");
+        }
+        else{
+            console.log("Throw error", err);
+        }
+    })
+})
+
+app.post('/isValidUser',(req,res)=>{
+    var userId = req.body.userId;
+    var password = req.body.password;
+    connection.query('select count(*) as total from UnarvAIUsers where userId = ? and password = ? ;',[userId, password], (err,result) => {
+        if(!err){
+            res.status = 200;
+            res.send(result[0].total==1);
+        }
+        else{
+            console.log("Throw error", err);
+        }
+    })
 })
 
 app.get("/video", (req, res) => {
@@ -115,6 +183,48 @@ app.post('/emotions',async (req,res)=>{
         console.log(error);   
     }
 
+})
+
+app.get("/food", async (req, res) => {
+    let res1;
+    let result;
+    // console.log(res);
+    try{
+        var resData = await Promise.all(
+            foodId.map( async (foodIds) => {
+                console.log(foodIds);
+            try{
+                result = await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+foodIds);
+                res1 = await result.json();
+                // console.log(res1);
+                // res.send(res1);
+                return res1;
+            }
+            catch(err){
+                console.log(err);
+            }
+        })
+        )
+        resData = resData.filter((res2) => res2!=null)
+        console.log(resData);
+        res.send(resData);
+    }catch(err){
+        console.log(err);
+    }
+    
+})
+
+app.post("/singleFoodDetail", async (req, res) => {
+    console.log(req.body);
+    try{
+        let result1 = await fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i="+req.body.id);
+        let res2 = await result1.json();
+        res.send(res2);
+        return res2;
+    }
+    catch(err){
+        console.log(err);
+    }
 })
 
 

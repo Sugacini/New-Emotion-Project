@@ -13,47 +13,49 @@ function ChatBot() {
   const data1 = (JSON.stringify(result.emo1));
     const finalEmo = data1.slice(1,data1.length-1);
     const navigate = useNavigate();
-  const [count, setCount] = useState(0)
-  var apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
-  var apiKey = 'AIzaSyBPeW2Q96M523ObMuApv4PSCm6T9Hp3Lus'; 
-
-  const [replyCreated,setReply]=useState(null); 
-  // var replyCreated;
-
-  const [messages,setMessage] = useState([]);
-  const [currentMessage, setCurrentMessage]=useState(null);
-
-  if ((messages.length%2)!=0) {
-    console.log('asked');
-    
-    botChat(messages[messages.length-1]);
-  }
-  
-
-  async function botChat(prompt) {
+    const [messages,setMessage] = useState([]);
+    const [currentMessage, setCurrentMessage]=useState(null);
+    if ((messages.length%2)!=0) {
+      console.log('asked');   
+      botChat(messages[messages.length-1]);
+    }
+    async function botChat(prompt) {
       try {
-        var response = await fetch (apiUrl+'?key='+apiKey,{
-          method:'POST',
-          headers:{
-            'Content-type':'application/json',
+  
+        console.log(prompt);
+  
+        console.log('waiting for response');
+        
+        
+        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer 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",
+            // "HTTP-Referer": "<YOUR_SITE_URL>",
+            "X-Title": "UnarvAI", 
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            contents : [{ parts : [{ text : prompt}] }]
+            "model": "deepseek/deepseek-r1:free",
+            "messages": [
+              {
+                "role": "user",
+                "content": prompt
+              }
+            ]
           })
         });
+  
         if(response.ok){
-          var data = await response.json();
-          // setReply(data.candidates[0].content.parts[0].text)
-          setMessage([...messages,data.candidates[0].content.parts[0].text]);  
-          console.log(data.candidates[0].content.parts[0].text);
-
+          const responseData = await response.json();
+          setMessage([...messages,responseData.choices[0].message.content]);  
+          console.log(responseData.choices[0].message.content);
         }
       } catch (error) {
         console.log(error);
         
-      }      
-    
-  }
+      }
+    }
   
 
 

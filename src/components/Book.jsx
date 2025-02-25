@@ -1,5 +1,10 @@
 function Book(){
-    console.log("Enter book");
+    return(
+        <div className="bookOuter">
+            <div className="bookSideBar"></div>
+            <div className="bookContainer"></div>
+        </div>
+    )
 }
 
 export default Book;

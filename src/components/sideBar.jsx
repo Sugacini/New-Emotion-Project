@@ -1,16 +1,16 @@
-function SideBar({showStatus}) {
-    if (showStatus) {
-        return(
-            <div className="sideBar">
-                <p>Past Memories</p>
-                <p>Today's Mood</p>
-                <p>Change Name</p>
-                <p>Change Picture</p>
-                <p>Configurations</p>
-                <p>Log out</p>
-            </div>
-        )
-    }
+function SideBar() {
+    return (
+        <div className="sideBar">
+            <p>Today's mood</p>
+
+            <p>This week</p>
+
+            <p>Change userId</p>
+
+            <p>Log out</p>
+        </div>
+    )
+    
 }
 
 export default SideBar;

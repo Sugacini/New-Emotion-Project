@@ -2,39 +2,77 @@ import { useLocation } from "react-router-dom";
 import "../Home.css";
 import { FaLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+async function takeFood(idOfFood) {
+    try {
+        let response = await fetch("http://localhost:3000/singleFoodDetail", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: idOfFood,
+            })
+        });
+        var resData = response.json();
+        var resData1 = await resData.then();
+        console.log(resData1);
+        return resData1;
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 function SingleRecipe() {
     const location = useLocation();
     const data = (location.state);
-    const nameofFood = data.name;
-    const imgOfFood = data.image;
-    const descOfImg = data.description;
-    console.log(descOfImg);
+    console.log(data.idOfFood);
+    const ingreData = Array.from({ length: 12 })
 
     const navigate = useNavigate();
+    const [isSingleFood, setSingleFood] = useState(null);
+    const [isIngre, setIngre] = useState("");
+
+    useEffect(() => {
+        takeFood(data.idOfFood).then(res => setSingleFood(res));
+    }, [])
 
     return (
         <div className="singleFoodOuter">
             <div className="foodBack">
-                <div className="iconBack" onClick={() => {navigate("/food")}}>
-                    <FaLeftLong style={{fontSize:"50px"}}></FaLeftLong>
+                <div className="iconBack" onClick={() => { navigate("/food") }}>
+                    <FaLeftLong style={{ fontSize: "50px" }}></FaLeftLong>
                 </div>
             </div>
-            <div className="singleFoodContainer">
-                <div className="imageWithName">
-                    <div className="imageOuter">
-                        <div className="foodImg">
-                            <img src={imgOfFood} className="foodImg1"></img>
-                        </div>
-                        <div className="foodName">{nameofFood}</div>
+            {(isSingleFood != null) ?
+                <div className="singleFoodContainer">
+                    <div className="foodName">
+                        {isSingleFood.meals[0].strMeal}</div>
+                    <div className="foodImg">
+                        <img src={isSingleFood.meals[0].strMealThumb} className="setImg"/>
                     </div>
-                    <div className="descript">
-                        <p className="setDescHead">Description</p>
-                        <p className="setDesc">{descOfImg}</p>
+                    <div className="ingrediants">
+                        <p className="ingreHead">Ingredients</p>
+                        {ingreData.map((_, index) => {
+                            let value1= 'strIngredient'+(index+1)
+                            console.log(value1);
+                            // setIngre(value1);
+                            let value = isSingleFood.meals[0][value1];
+                            console.log(value);
+                            return(
+                                <li className="ingreValues">{value}</li>
+                            )
+                        })}
+                    </div>
+                    <div className="instruction">
+                        <p className="instruHead">Instructions</p>
+                        <p>{isSingleFood.meals[0].strInstructions}</p>
                     </div>
                 </div>
-            </div>
+                : <p>Loading</p>}
         </div>
+
     )
 }
 
