@@ -234,7 +234,6 @@ input::placeholder{
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 /* chat */
 
 .chatHeader{
@@ -343,7 +342,6 @@ input::placeholder{
     justify-content: center;
     align-items: center;
 }
-=======
 /* header */
 
 
@@ -551,4 +549,3 @@ input::placeholder{
     border-bottom-left-radius: 10px;
 
 }
->>>>>>> 6825077d57f38c6ab6e203a36b36ccb149773f0a
