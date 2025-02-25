@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-function FirstPageBody() {
+function FirstPageBody({userUniqueId}) {
     const navigate = useNavigate();
 
     return(
@@ -8,7 +8,7 @@ function FirstPageBody() {
                 <div className='bodyChild'>
                     <h1 className='introLines'>Mood based Suggestions</h1>
                     <p className='introSentence'>Expresto detects your mood by analyzing facial expressions. It provides personalized recommendations for activities, music, and content based on how you're feeling.</p>
-                    <button className='startedBtn' onClick={() => {navigate("/home")}}>
+                    <button className='startedBtn' onClick={() => {navigate("/home", {state: {idOfUser: userUniqueId}})}}>
                          Get Started
                     </button>                
                 </div>

@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 function ChatBot() {
     const location = useLocation();
   const result = location.state;
+  const userId = result.idOfUser;
   const data1 = (JSON.stringify(result.emo1));
     const finalEmo = data1.slice(1,data1.length-1);
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ function ChatBot() {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             // "HTTP-Referer": "<YOUR_SITE_URL>",
             "X-Title": "UnarvAI", 
             "Content-Type": "application/json"
@@ -63,7 +64,7 @@ return (
     <div className='chatContainer'>
         <div className='fullPageOfChat'>
             <div className='chatHeader'>
-                <FaArrowLeft className='back' onClick={(e) =>navigate("/features",{ state: { findEmo: (finalEmo) } })}/>
+                <FaArrowLeft className='back' onClick={(e) =>navigate("/features",{ state: { findEmo: (finalEmo) , idOfUser: userId} })}/>
                 <p>Chat bot</p>
             </div>
             <ChatSpace messages={messages}></ChatSpace>

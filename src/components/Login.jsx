@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-function Login({setLog, setWay, wayToLogin}) {
+function Login({setLog, setWay, wayToLogin, setUserId, userUniqueId}) {
     const [clicked,setClick] = useState(false);
     const [userIdErr,setIdErr] = useState(null);
     const [passwordErr,setPasswordErr] = useState(null);
@@ -14,6 +14,8 @@ function Login({setLog, setWay, wayToLogin}) {
         var usersUserId = userId.current.value;
         var usersPassword = password.current.value; 
         event.preventDefault();
+
+        setUserId(usersUserId);
                       
         if (usersUserId.length<6 || usersPassword.length<8 || isNaN(usersPassword)==false || usersPassword.split('').some(x=>x>-1)==false) {
             if (usersUserId.length<6) {
@@ -72,6 +74,9 @@ function Login({setLog, setWay, wayToLogin}) {
         
         var usersUserId = userId.current.value;
         var usersPassword = password.current.value; 
+
+        setUserId(usersUserId);
+
         try {
             var isCorrect = await fetch('http://localhost:3000/isValidUser',{
                 method:'POST',

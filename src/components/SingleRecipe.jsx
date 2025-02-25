@@ -29,6 +29,7 @@ function SingleRecipe() {
     const data = (location.state);
     console.log(data.idOfFood);
     console.log(data.emo1)
+    const userId = data.idOfUser;
     const ingreData = Array.from({ length: 12 })
 
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ function SingleRecipe() {
     return (
         <div className="singleFoodOuter">
             <div className="foodBack">
-                <div className="iconBack" onClick={() => { navigate("/food", {state: {emo:data.emo1}}) }}>
+                <div className="iconBack" onClick={() => { navigate("/food", {state: {emo:data.emo1, idOfUser: userId}}) }}>
                     <FaLeftLong style={{ fontSize: "50px" }}></FaLeftLong>
                 </div>
             </div>

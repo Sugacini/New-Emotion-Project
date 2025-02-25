@@ -1,7 +1,7 @@
 import "../Home.css"
 import { useRef, useState, useEffect } from "react";
 import * as faceapi from "face-api.js";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate , useLocation} from "react-router-dom";
 import Features from "./Features";
 let count = 0;
 
@@ -10,6 +10,10 @@ function Home() {
     const navigate = useNavigate();
 
     const findEmotion = useRef();
+
+    const location = useLocation();
+    const userData = location.state;
+    console.log(userData);
 
     const [isEmotion, setEmotion] = useState(true);
     const srcVal = useRef();
@@ -133,7 +137,7 @@ function Home() {
         setTimeout(() => {
             const tracks = srcVal.current.srcObject.getTracks();
             tracks.forEach(track => track.stop());
-            navigate("/features", { state: { findEmo: (findEmotion.current) } });
+            navigate("/features", { state: { findEmo: (findEmotion.current) , idOfUser: userData.idOfUser} });
         }, 4500);
 
     }

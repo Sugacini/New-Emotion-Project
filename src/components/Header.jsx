@@ -2,7 +2,7 @@ import { useState } from "react";
 import Login from './Login.jsx'
 import SideBar from "./sideBar.jsx";
 
-function Header() {
+function Header({setUserId, userUniqueId, loginBtn={loginBtn}}) {
     const [loggedIn, setLog] = useState(false);
     const [isLogCLicked, setLogClicked] = useState(false);
     const [wayToLogin, setWay] = useState(null);
@@ -14,19 +14,27 @@ function Header() {
                 <h3>UnarvAI</h3>
             </div>
 
-            {/* <i class="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> */}
-            {isLogCLicked ? loggedIn ?
-                <i class="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> :
+            {/* <i NamclassName="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> */}
+            {console.log('userUniqueId : ',userUniqueId)}
+            {userUniqueId?<i className="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i>:
+            isLogCLicked ? loggedIn ?
+                <i className="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> :
                 <div className="forLogin">
-                    <Login setLog={setLog} setWay={setWay} wayToLogin={wayToLogin} />
+                    <Login setLog={setLog} setWay={setWay} wayToLogin={wayToLogin} setUserId={setUserId} userUniqueId={userUniqueId}/>
                 </div>
                 : <div className="gettingIn">
-                    <div className="loginTxt" onClick={() => {
+                    {loginBtn?<div className="loginTxt" ref={loginBtn} onClick={() => {
                         setLogClicked(true);
                         setWay('login');
                     }} >
                         <p>Login</p>
-                    </div>
+                    </div>:<div className="loginTxt" onClick={() => {
+                        setLogClicked(true);
+                        setWay('login');
+                    }} >
+                        <p>Login</p>
+                    </div>}
+                    
                     <div className="signUpTxt" onClick={() => {
                         setLogClicked(true);
                         setWay('signUp');
@@ -36,8 +44,6 @@ function Header() {
                 </div>}
 
             {userIconCliked? <SideBar />:null }
-
-
         </div>
 
     )

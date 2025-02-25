@@ -6,8 +6,15 @@
 
 /* home page */
 
+.home{
+    height: 83vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .homePageCont{
-    height: 98vh;
+    /* height: 98vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +26,7 @@
     justify-content: space-around;
     align-items: center;
     color: black;
+    /* margin-top: -50px; */
 }
 
 .bodyChild{
@@ -137,7 +145,7 @@ input::placeholder{
 }
 
 
-.header{
+/* .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,7 +154,7 @@ input::placeholder{
     background-color: #fffefe;
     width: 100%;
 
-}
+} */
 
 .company{
     display: flex;
@@ -440,6 +448,7 @@ input::placeholder{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.178);
 }
 
 .logo{
@@ -502,7 +511,7 @@ input::placeholder{
     position: absolute;
     height: 100vh;
     width: 100%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(40px);
     display: flex;
     justify-content: center;
     align-items: center;

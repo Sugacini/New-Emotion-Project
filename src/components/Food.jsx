@@ -34,6 +34,7 @@ function Food() {
     // var data1 = "";
     // if(data != null){
         const data1 = data.emo;
+        const userId = data.idOfUser;
         console.log(data1);
     // }
     
@@ -45,7 +46,7 @@ function Food() {
         <div className="recipeOuter">
             <div className="recipes">
                 <div className="foodHead">
-                    <div className="fooBack" onClick={() => {navigate("/features", {state: {findEmo: data1}})}}>
+                    <div className="fooBack" onClick={() => {navigate("/features", {state: {findEmo: data1, idOfUser: userId}})}}>
                         <div className="iconBack1">
                             <FaLeftLong style={{fontSize: "70px"}}></FaLeftLong>
                         </div>
@@ -58,7 +59,7 @@ function Food() {
                       return <div key={index} className="smallDiv" onClick={(e) => {
                         for(let i=0; i<isFood.length; i++){
                             if(e.target.id == i){
-                                navigate("/singleFood", {state: {idOfFood: isFood[i].meals[0].idMeal, emo1: data1}});
+                                navigate("/singleFood", {state: {idOfFood: isFood[i].meals[0].idMeal, emo1: data1, idOfUser: userId}});
                                 console.log(isFood[i].meals[0])
                                 break;
                             }

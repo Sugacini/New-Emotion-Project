@@ -1,5 +1,5 @@
 import './musicPage.css'
-import HeaderAndSideBar from './headerWithSideBar';
+// import HeaderAndSideBar from './headerWithSideBar';
 import AlbumBox from './AlbumBox';
 import SideBarredAlbum from './SideBarredAlbum';
 import MusicMainViewTopSec from './MusicMainViewTopSec';
@@ -40,6 +40,9 @@ function MusicPage() {
   const setImg = useRef();
   const location = useLocation();
   const result = location.state;
+  var userId = result.idOfUser;
+  console.log(userId);
+  
   const data1 = (JSON.stringify(result.emo));
   finalEmo = data1.slice(1,data1.length-1);
   emojiImg = finalEmo+".png";
@@ -78,7 +81,8 @@ function MusicPage() {
 
   return (
     <>
-      <HeaderAndSideBar />
+      {/* <HeaderAndSideBar /> */}
+      
       <div className='wholeMusicPage'>
         {selectedAlbumIdx==null?<div id='musicsLeft'>
             <img src={emojiImg} alt="" className='emojiImage' />

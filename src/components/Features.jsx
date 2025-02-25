@@ -3,22 +3,30 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import Header from "./Header";
 import ChatBot from "./ChatBot";
 import { FaRobot, FaMusic, FaBook, FaQuoteRight, FaUtensils, FaClapperboard, FaGamepad, FaBookOpen, FaFilePen, FaLeftLong} from "react-icons/fa6";
+import { useEffect } from "react";
 
 let count = 0;
 
 function Features() {
-    const setImg = useRef();
+
 
     const [emoImg, setEmoImg] = useState("");
+    const [userUniqueId, setUserId] = useState(null);
+    const [featureClicked, setFeatureClicked] = useState(false);
+    const setImg = useRef();
     const location = useLocation();
     const data = location.state;
     console.log(data);
+    var uId = data.idOfUser;
     const data1 = (JSON.stringify(data.findEmo));
     const finalEmo = data1.slice(1, data1.length - 1);
     const finalEmo1 = finalEmo.toUpperCase();
     console.log(JSON.stringify(data.findEmo), finalEmo);
+
+    const loginBtn=useRef();
 
     const navigate = useNavigate();
 
@@ -31,11 +39,16 @@ function Features() {
 
 
     function quotesHandler() {
-        navigate("/quotes", {state: {emo: (finalEmo)}});
+        //to allow only if they logged in
+
+        (userUniqueId==null)? loginBtn.current.click():navigate("/quotes", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
     }
 
     function journelHandler() {
-        navigate("/journel");
+        // setFeatureClicked(true);
+        (userUniqueId==null)? loginBtn.current.click():navigate("/journel", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
+
+        // navigate("/journel", { state: { emo: (finalEmo), idOfUser: userUniqueId } });
     }
 
     // function storyHandler() {
@@ -43,25 +56,38 @@ function Features() {
     // }
 
     function musicHandler() {
-        navigate("/music", { state: { emo: (finalEmo) } });
+        // setFeatureClicked(true);
+        (userUniqueId==null)? loginBtn.current.click():navigate("/music", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
+
+        // navigate("/music", { state: { emo: (finalEmo), idOfUser: userUniqueId } });
     }
 
     function chatBotHandler() {
-        navigate("/chatBot", { state: { emo1: (finalEmo) } });
+        // setFeatureClicked(true);
+        (userUniqueId==null)? loginBtn.current.click():navigate("/chatBot", {state: {emo1: (finalEmo), idOfUser: userUniqueId }});
+
+        // navigate("/chatBot", { state: { emo1: (finalEmo) , idOfUser: userUniqueId } });
     }
 
     function foodHandler() {
-        navigate("/food", { state: { emo: (finalEmo) } });
+        // setFeatureClicked(true);
+        (userUniqueId==null)? loginBtn.current.click():navigate("/food", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
+
+        // navigate("/food", { state: { emo: (finalEmo) , idOfUser: userUniqueId } });
     }
+
+    useEffect(()=>{uId?setUserId(uId):null},[])
 
     console.log(setImg.current, emoImg, data1);
     return (
 
         <div className={style.featureOuter} >
             <div className={style.featureHead}>
-                <div className={style.backIcon} onClick={() => {navigate("/home")}}>
+                {/* {uId?setUserId(uId):null} */}
+                <Header userUniqueId={userUniqueId} setUserId={setUserId} loginBtn={loginBtn}/>
+                {/* <div className={style.backIcon} onClick={() => {navigate("/home")}}>
                     <FaLeftLong className={style.leftIcon}></FaLeftLong>
-                </div>
+                </div> */}
                 
             </div>
             <div className={style.featureContainer}>
@@ -105,6 +131,10 @@ function Features() {
 
             </div>
             {/* </Router> */}
+            {/* {(userUniqueId==null && featureClicked)?<Login setLog={setLog} setWay={setWay} wayToLogin={wayToLogin} setUserId={setUserId} userUniqueId={userUniqueId}/>:null} */}
+
+            
+
         </div>
     )
 }
