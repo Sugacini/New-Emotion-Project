@@ -8,6 +8,8 @@ import Home from "./components/Home";
 import MusicPage from "./components/musicPage";
 import ChatBot from "./components/ChatBot";
 import HomePage from "./components/headerAndFirstPage";
+import SingleRecipe from "./components/SingleRecipe";
+import Food from "./components/Food";
 
 function App(){
   return(
@@ -22,6 +24,8 @@ function App(){
         <Route path="/journel" element={<Journel1 />} />
         <Route path="/music" element={<MusicPage />} />
         <Route path="/chatBot" element={<ChatBot />} />
+        <Route path="/food" element={<Food />} />
+        <Route path="/singleFood" element={<SingleRecipe />} />
       </Routes>
     </Router>
   )

@@ -28,6 +28,13 @@ function SignUp({change, setChange}){
         setChange(!change);
     }
 
+    document.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            signUp1();
+        }
+    });
+    
+
     async function signUp1(e){
         e.preventDefault();
         // alert("sign up");

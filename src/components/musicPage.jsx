@@ -20,12 +20,12 @@ function decreseParentsWidth() {
   element.style.width = '950px';
 }
 
-async function dataReceiver() {
+async function dataReceiver(emotionEmoji) {
   try {
     var response= await fetch('http://localhost:3000/emotions',{
       method:'POST',
       headers:{"Content-type":"application/json"},
-      body:JSON.stringify({emotion:'sad'})})
+      body:JSON.stringify({emotion:'neutral'})})
       
     var responseData= await response.json();    
     return responseData;
@@ -45,7 +45,7 @@ function MusicPage() {
   emojiImg = finalEmo+".png";
 
   useEffect(()=>{
-    dataReceiver().then(res=>setData(res));
+    dataReceiver(finalEmo).then(res=>setData(res));
   },[])
   const [data,setData]= useState(null);
   const [addElement, setState] = useState(false);

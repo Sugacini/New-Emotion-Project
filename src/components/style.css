@@ -75,6 +75,7 @@
     color: aliceblue;
     position: relative;
     transition: width .8s ease;
+    cursor: pointer;
 }
 
 .startedBtn::before{
@@ -123,7 +124,7 @@ body {
     background-position: 45% 34%, 45% 61%;
     background-size: 74% 115%, 84% 127%;
     height:100vh;
-    padding-top: 20px;
+    position: relative;
 }
 
 input::placeholder{
@@ -154,12 +155,12 @@ input::placeholder{
     align-items: center;
 }
 
-.logo{
+/* .logo{
     height: 40px;
     width: 40px;
     border-radius: 50%;
     background: linear-gradient(pink,aqua);
-}
+} */
 
 .searchBox{
     /* color: var(--primary-color); */
@@ -233,6 +234,7 @@ input::placeholder{
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* chat */
 
 .chatHeader{
@@ -341,3 +343,212 @@ input::placeholder{
     justify-content: center;
     align-items: center;
 }
+=======
+/* header */
+
+
+.loginBox{
+    /* height: 450px; */
+    width: 500px;
+    color: white;
+    background: rgb(8,70,151);
+    background: linear-gradient(90deg, rgba(8,70,151,1) 0%, rgba(11,136,255,1) 60%);
+    border-radius: 10px;
+    transition: transform .5s ease, height .5s ease;
+    backdrop-filter: blur(10px);
+    padding: 50px 0px;
+    opacity: .9;
+}
+
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.inputParent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputBoxes{
+    width: 300px;
+    /* border-radius: 10px; */
+    height: 40px;
+    border: none;
+    background-color:transparent;
+    padding-left: 13px;
+    border-bottom: 1px solid white;
+    color: white;
+    /* backdrop-filter: blur(10px); */
+}
+
+.nameLabel{
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    /* background-color: white; */
+    transition: top .5s ease;
+    padding: 0px 3px;
+    color: white;
+}
+
+.labels{
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    /* background-color: white; */
+    transition: top .5s ease;
+    padding: 0px 3px;
+    color: white;
+}
+
+.inputBoxes:focus{
+    outline: none;
+}
+
+.inputBoxes:hover+.nameLabel{
+    top: -8px;
+}
+
+.inputBoxes:valid+.nameLabel{
+    top: -8px;
+}
+
+/* .inputBoxes:focus+.labels{
+    top: 10px;
+} */
+
+.inputBoxes:hover+.labels{
+    top: 20px;
+}
+
+.inputBoxes:valid+.labels{
+    top: 20px;
+}
+
+/* header */
+
+.header{
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    padding: 10px 50px;   
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.headersLeft{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon{
+    font-size: 40px;
+    color: #216AAE;
+    cursor: pointer;
+}
+
+.loginTxt{
+    border: 1px solid #216AAE;
+    border-radius:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: #216AAE;
+    cursor: pointer;
+}
+
+.signUpTxt{
+    border: 1px solid #216AAE;
+    border-radius:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    background-color: #216AAE;
+    cursor: pointer;
+}
+
+.gettingIn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.logHeading{
+    font-size: 22px;
+}
+
+.forLogin{
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.signUpSubmitBtn{
+    padding: 30px 20px;
+    border: none;
+    background: rgb(8,145,242);
+    background: linear-gradient(100deg, rgba(8,145,242,1) 0%, rgba(22,220,255,1) 100%);
+    color: white;
+    /* border-radius: 10px; */
+    font-size: 20px;
+    cursor: pointer;
+    width: 120%;
+}
+
+.opac{
+    opacity: 0;
+}
+
+.errMsg{
+    color: red;
+}
+
+.underSmlLoginTxt:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sideBar{
+    position: absolute;
+    /* height: calc(100% - 70px); */
+    background-color: rgb(241, 241, 241);
+    width: 300px;
+    top: 70px;
+    right: 0%;
+    /* padding-left: 20px;
+    padding-top: 20px; */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding:20px ;
+    border-bottom-left-radius: 10px;
+
+}
+>>>>>>> 6825077d57f38c6ab6e203a36b36ccb149773f0a
