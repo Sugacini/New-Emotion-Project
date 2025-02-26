@@ -7,7 +7,7 @@ const cors=require("cors");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "your_password1",
+    password: "suga@123",
     database: "Emotions",
 });
 
@@ -260,6 +260,34 @@ app.post("/singleFoodDetail", async (req, res) => {
     }
 })
 
+app.post("/getBooks", async(req, res) => {
+    console.log(req.body);
+    try{
+        let res1 = await fetch("https://www.googleapis.com/books/v1/volumes?q="+req.body.emo);
+        let response1 = await fetch("https://www.googleapis.com/books/v1/volumes?q=happy");
+        let res2 = await res1.json();
+        let response2 = await response1.json();
+        let resArr = [...res2.items, ...response2.items]
+        console.log(res2.items);
+        res.send(resArr);
+    }
+    catch(err){
+        console.error(err);
+    }
+})
+
+app.post("/getBookById", async (req, res) => {
+    console.log(req.body);
+    try{
+        let response = await fetch("https://www.googleapis.com/books/v1/volumes/"+req.body.bookId);
+        let response1 = await response.json();
+        console.log(response1);
+        res.send(response1)
+    }
+    catch(err){
+        console.error(err);
+    }
+})
 
 app.listen(3000, () => {
     console.log("Server Connected port 3000");

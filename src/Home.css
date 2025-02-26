@@ -87,7 +87,7 @@
 .detected{
     width: 60%;
     height: 100px;
-    border: 1px solid;
+    /* border: 1px solid; */
     margin: auto;
     margin-top: 2%;
     display: flex;
@@ -766,23 +766,231 @@
 
 .bookOuter{
     width: 100%;
-    height: 98vh;
-    border: 1px solid;
+    height: auto;
+    /* border: 1px solid; */
     display: flex;
     justify-content: space-between;
+    /* background-color: #5a9bfd; */
+
 }
 
 .bookSideBar{
     width: 25%;
-    height: 100%;
+    height: 1095px;
     background-color: #0072ff;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    color: white;
+    font-weight: bolder;
+    padding: 3%;
 }
 
 .bookContainer{
-    width: 75%;
-    height: 100%;
-    background-color: #5a9bfd;
+    width: 78%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10%;
+    row-gap: 5%;
+    padding: 5%;
+    /* justify-content: flex-end; */
+    margin-left: 23%;
+    
 }
+
+.book{
+    width: 16%;
+    height: 320px;
+    /* border: 1px solid; */
+    padding-bottom: 5%;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 8px #c5c3c3;
+}
+
+
+.setBookImg{
+    width: 100%;
+    height: 90%;
+    border-radius: 10px 10px 0 0;
+    border: 2px solid;
+}
+
+.bookName{
+    width: 100%;
+    height: 33%;
+    border-radius: 0 0 10px 10px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    /* color: white; */
+    padding: 5%;
+    color: rgb(85, 58, 58);
+    background-color: #FFFFFF;
+}
+
+/* .authorName{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(242, 46, 46);
+    background-color: #FFFFFF;
+    border-radius: 0 0 10px 10px;
+} */
+
+.singleBookOuter
+{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+}
+
+.singleBookOuter1
+{
+    width: 55%;
+    height: auto;
+    border: 1px solid;
+    /* background-color: #0072ff; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* box-shadow: -5px -5px 8px rgb(201, 201, 201); */
+    /* box-shadow: 5px 5px 8px rgb(201, 201, 201); */
+}
+
+.booknameImg{
+    width: 100%;
+    height: 500px;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgBook{
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookImage{
+    width: 50%;
+    height: 80%;
+    border-radius: 10px;
+}
+
+.nameBook{
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.title{
+    width: 90%;
+    height: auto;
+    /* border: 1px solid; */
+    font-size: 3.5em;
+    /* color: white; */
+}
+
+.author1{
+    width: 90%;
+    height: 20%;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5em;
+    color: rgb(96, 3, 3);
+    padding: 3%;
+}
+
+
+.aboutBook{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid; */
+    padding: 5%;
+}
+
+.publisher{
+    width: 50%;
+    height: 150px;
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+}
+
+.publish{
+    width: 100%;
+    height: 65px;
+    font-size: 2.5em;
+}
+
+.publisherName{
+    width: 80%;
+    height: 60px;
+    font-size: 1.5em;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.year{
+    width: 70%;
+    height: 60px;
+    font-size: 1.5em;
+    display: flex;
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+}
+
+.bookDesc{
+    width: 90%;
+    height: auto;
+    /* border: 1px solid; */
+}
+
+.bookDescription{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid; */
+    font-size: 1.5em;
+    line-height: 45px;
+    word-spacing: 10px;
+}
+
+.linkOfBook{
+    width: 40%;
+    height: 40px;
+    font-size: 1.5em;
+    padding-top: 1%;
+}
+
+.navigateLinks{
+    text-decoration: none;
+    color: purple;
+}
+
+.loading{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+}
+
 
 
 

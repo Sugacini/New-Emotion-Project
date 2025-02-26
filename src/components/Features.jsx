@@ -74,6 +74,10 @@ function Features() {
         // navigate("/food", { state: { emo: (finalEmo) , idOfUser: userUniqueId } });
     }
 
+    function bookHander(){
+        (userUniqueId==null)? loginBtn.current.click():navigate("/book", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
+    }
+
     // function backHome(params) {
     //     return navigate("/home");
     // }
@@ -106,7 +110,7 @@ function Features() {
                     <FaQuoteRight className={style.icons} />
                 </div>
 
-                <div className={`${style.item} ${style.feature4}`} title="Story">
+                <div className={`${style.item} ${style.feature4}`} title="Book" onClick={bookHander}>
                     <FaBookOpen className={style.icons} />
                 </div>
 

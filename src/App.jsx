@@ -10,6 +10,8 @@ import ChatBot from "./components/ChatBot";
 import HomePage from "./components/headerAndFirstPage";
 import SingleRecipe from "./components/SingleRecipe";
 import Food from "./components/Food";
+import Book from "./components/Book";
+import SingleBook from "./components/SingleBook";
 
 function App(){
   return(
@@ -26,6 +28,8 @@ function App(){
         <Route path="/chatBot" element={<ChatBot />} />
         <Route path="/food" element={<Food />} />
         <Route path="/singleFood" element={<SingleRecipe />} />
+        <Route path="/book" element={<Book />} />
+        <Route path="/singleBook" element={<SingleBook />} />
       </Routes>
     </Router>
   )
