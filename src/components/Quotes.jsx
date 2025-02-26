@@ -51,14 +51,14 @@ function Quotes(){
 
     return(
         <>
-            <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={"features"} obj={{state: {findEmo: finalEmo, idOfUser: userId}}}/>
             <div className="quotesDiv">
 
             {console.log(finalEmo)}
             <div className="naviHead" >
-                <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: finalEmo, idOfUser: userId}})}}>
+                {/* <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: finalEmo, idOfUser: userId}})}}>
                     <FaLeftLong style={{fontSize: "50px"}}></FaLeftLong>
-                </div>
+                </div> */}
                 <div className="sto" onClick={() => {
                 localStorage.setItem("emoData", JSON.stringify(finalEmo));
                 navigate("/story", {state: {emo: finalEmo, idOfUser: userId}})

@@ -32,7 +32,7 @@ app.use(express.static(pubDir));
 
 
 app.use(cors({
-    origin: "http://localhost:5174", 
+    origin: "http://localhost:5173", 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, 
 }));
@@ -175,7 +175,7 @@ app.post('/emotions',async (req,res)=>{
         )
 
         responses=responses.filter((res)=>res!=null)
-        console.log(responses);
+        // console.log(responses);
         
         res.send(responses);    
 

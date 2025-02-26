@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
-function Login({setLog, setWay, wayToLogin, setUserId, userUniqueId}) {
+import { FaXmark } from "react-icons/fa6";
+
+function Login({setLog, setWay, wayToLogin, setUserId, userUniqueId, setLogClicked}) {
     const [clicked,setClick] = useState(false);
     const [userIdErr,setIdErr] = useState(null);
     const [passwordErr,setPasswordErr] = useState(null);
@@ -99,6 +101,11 @@ function Login({setLog, setWay, wayToLogin, setUserId, userUniqueId}) {
 
     return (
         <div className="loginBox">
+            <div className="cancelLoginPage" onClick={()=>setLogClicked(false)}>
+                <FaXmark />
+            </div>
+               
+
             {(wayToLogin=='login')?
             <form action="" className="signUpForm" onSubmit={loginHandler}>
             <h3 className="logHeading">Login</h3>

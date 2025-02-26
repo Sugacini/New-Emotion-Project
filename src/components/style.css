@@ -326,11 +326,11 @@ input::placeholder{
 }
 
 .inputBox{
-    height: 40px;
+    height: 100%;
     border-radius: 20px;
     border: none;
     padding-left: 10px;
-    width: 85%;
+    width: 91%;
     background-color: #F2F3F7;
 }
 
@@ -369,6 +369,31 @@ input::placeholder{
     backdrop-filter: blur(10px);
     padding: 50px 0px;
     opacity: .9;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.loginBox:hover .cancelLoginPage{
+    opacity: 1;
+}
+
+.cancelLoginPage{
+    /* align-self: flex-end; */
+    /* margin-top: -60px; */
+    cursor: pointer;
+    background-color: #0d1b3141;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .5s;
 }
 
 .signUpForm{

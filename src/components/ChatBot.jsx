@@ -32,7 +32,7 @@ function ChatBot() {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             // "HTTP-Referer": "<YOUR_SITE_URL>",
             "X-Title": "UnarvAI", 
             "Content-Type": "application/json"
@@ -65,11 +65,11 @@ return (
     <div className='chatContainer'>
 
         <div className='fullPageOfChat'>
-        <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+        <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={"features"} obj={{state: {findEmo: finalEmo, idOfUser: userId}}}/>
 
             <div className='chatHeader'>
                 <FaArrowLeft className='back' onClick={(e) =>navigate("/features",{ state: { findEmo: (finalEmo) , idOfUser: userId} })}/>
-                <p>Chat bot</p>
+                <p>Emotional Partner</p>
             </div>
             <ChatSpace messages={messages}></ChatSpace>
             {/* <h1>{replyCreated}</h1> */}

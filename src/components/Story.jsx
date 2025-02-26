@@ -43,13 +43,13 @@ function Story(){
 
     return(
         <>
-            <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={"features"} obj={{state: {findEmo: data2, idOfUser: userId}}}/>
             <div className="storyOuter">
 
             <div className="stoHead">
-                <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: data2, idOfUser: userId}})}}>
+                {/* <div className="stoBack" onClick={() => {navigate("/features", {state: {findEmo: data2, idOfUser: userId}})}}>
                     <FaLeftLong style={{fontSize: "50px"}}></FaLeftLong>
-                </div>
+                </div> */}
                 <div className="sto" onClick={() => {navigate("/quotes", {state: {emo: data2, idOfUser: userId}})}}>
                     <FaQuoteRight className="iconSize"></FaQuoteRight>
                 </div>

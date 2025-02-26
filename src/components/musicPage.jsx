@@ -86,7 +86,7 @@ function MusicPage() {
     <>
       {/* <HeaderAndSideBar /> */}
 
-  <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+  <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'features'} obj={{state: {findEmo: finalEmo, idOfUser: userId}}}/>
 
 
       <div className='wholeMusicPage'>

@@ -26,7 +26,7 @@ function Header({setUserId, userUniqueId, loginBtn={loginBtn}, backTo, obj}) {
             isLogCLicked ? loggedIn ?
                 <i className="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> :
                 <div className="forLogin">
-                    <Login setLog={setLog} setWay={setWay} wayToLogin={wayToLogin} setUserId={setUserId} userUniqueId={userUniqueId}/>
+                    <Login setLog={setLog} setWay={setWay} wayToLogin={wayToLogin} setUserId={setUserId} userUniqueId={userUniqueId} setLogClicked={setLogClicked}/>
                 </div>
                 : <div className="gettingIn">
                     {loginBtn?<div className="loginTxt" ref={loginBtn} onClick={() => {

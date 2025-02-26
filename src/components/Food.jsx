@@ -45,17 +45,17 @@ function Food() {
 
     return (
       <>
-      <Header userUniqueId={userId} setUserId={null} loginBtn={null}/>
+      <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={"features"} obj={{state: {findEmo: data1, idOfUser: userId}}}/>
 
         <div className="recipeOuter">
 
             <div className="recipes">
                 <div className="foodHead">
-                    <div className="fooBack" onClick={() => {navigate("/features", {state: {findEmo: data1, idOfUser: userId}})}}>
+                    {/* <div className="fooBack" onClick={() => {navigate("/features", {state: {findEmo: data1, idOfUser: userId}})}}>
                         <div className="iconBack1">
                             <FaLeftLong style={{fontSize: "70px"}}></FaLeftLong>
                         </div>
-                    </div>
+                    </div> */}
                     <p className="foodHead1">Food</p>
                 </div>
                 <div className="insertFood">
