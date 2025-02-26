@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import Header from "./Header";
+import { useLocation } from "react-router-dom";
 
 function JournelLogo() {
 
@@ -16,6 +17,14 @@ function JournelLogo() {
     const [newDataDiv, setDataDiv] = useState([]);
 
     const [count, setCount] = useState(0);
+
+    const location = useLocation();
+    const result = location.state;
+    var userId = result.idOfUser;
+    console.log(userId);
+
+    const data1 = (JSON.stringify(result.emo));
+    var finalEmo = data1.slice(1,data1.length-1);
 
     function createDiv() {
         console.log(count);
@@ -49,6 +58,8 @@ function JournelLogo() {
 
     return (
         <>
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'features'} obj={{state: {findEmo: finalEmo, idOfUser: userId}}}/>
+
             {/* <Header userUniqueId={userId} setUserId={null} loginBtn={null}/> */}
 
             <div className={style.journelHeader}>
@@ -61,38 +72,26 @@ function JournelLogo() {
 
                 <div className={style.options}>
                     <div className={style.create + " " + style.option} onClick={createDiv}>
+                        Create New 
                         <i className="fa-solid fa-square-plus" style={{ fontSize: "35px", color: "black" }}></i>
-                    </div>
-                    <div className={style.search + " " + style.option}>
-                        <i className="fa-solid fa-magnifying-glass" style={{ fontSize: "27px", color: "black" }}></i>
-                    </div>
-                    <div className={style.trash + " " + style.option}>
-                        <i className="fa-regular fa-trash-can" style={{ fontSize: "27px", color: "black" }}></i>
-                    </div>
-                    <div className={style.setting + " " + style.option}>
-                        <i className="fa-solid fa-gear" style={{ fontSize: "29px", color: "black" }}></i>
-                    </div>
-                    <div className={style.profile + " " + style.option}>
-                        <div className={style.innerProfile}>
-                            <i className="fa-solid fa-user" style={{ fontSize: "20px", color: "black" }}></i>
-                        </div>
                     </div>
                 </div>
             </div>
 
             <div className={style.writeJournel}>
-                <div className={style.journelContainer} ref={createTextDiv}>
+                {/* {count==0?null:null} */}
+                <div className={style.journelContainer} ref={createTextDiv} style={(count==0)?{width:'0%'}:{width:'80%'}}>
                     {newJournelDiv.map((_, index) => (
                         <div key={index} className={style.journelBox} ref={newDiv}>{console.log(index)}
                             <div className={style.textBox} ref={writeText} contentEditable={true}></div>
-                            <div className="buttons">
+                            <div className={style.buttons}>
                                 <button className={style.saveButton} onClick={saveData}>Save</button>
                                 <button className={style.trash} onClick={deleteData}>Delete</button>
                             </div>
                         </div>
                     ))}
                 </div>
-                <div className={style.saveJournel} ref={writingDataSave}>
+                <div className={style.saveJournel} ref={writingDataSave} style={(count==0)?{flexDirection:'row', height:'fit-content', minWidth: '343px'}:{width:'20%'}}>
                     {newDataDiv.map((ele, index) => {
                         { console.log(index) }
                         return <div className={style.dataSaveDiv} ref={saveText} key={index}>
