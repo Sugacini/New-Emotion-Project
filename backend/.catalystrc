@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "28989000000011003",
+      "name": "unarvAI3",
+      "domain": {
+        "id": "10096177541",
+        "name": "unarvai3-880609871.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "880609871",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

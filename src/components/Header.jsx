@@ -11,13 +11,17 @@ function Header({setUserId, userUniqueId, loginBtn={loginBtn}, backTo, obj}) {
     const navigate = useNavigate();
     return (
         <div className="header">
-            {backTo?<div className="headersLeft" onClick={()=>navigate("/"+backTo, obj)} style={{cursor:'pointer'}}>
+            <div className="headersLeft">
+            {backTo?<img src="logo4.png" alt="" className="logo" onClick={()=>navigate("/"+backTo, obj)} style={{cursor:'pointer'}}/>:<img src="logo4.png" alt="" className="logo" />}
+                <h3>UnarvAI</h3>
+            </div>
+            {/* {backTo?<div className="headersLeft" onClick={()=>navigate("/"+backTo, obj)} style={{cursor:'pointer'}}>
                 <img src="logo4.png" alt="" className="logo" />
                 <h3>UnarvAI</h3>
             </div>:<div className="headersLeft">
                 <img src="logo4.png" alt="" className="logo" />
                 <h3>UnarvAI</h3>
-            </div>}
+            </div>} */}
             
 
             {/* <i NamclassName="fa-solid fa-circle-user icon" onClick={()=>setUIconClick(!userIconCliked)}></i> */}
@@ -41,12 +45,12 @@ function Header({setUserId, userUniqueId, loginBtn={loginBtn}, backTo, obj}) {
                         <p>Login</p>
                     </div>}
                     
-                    <div className="signUpTxt" onClick={() => {
+                    {/* <div className="signUpTxt" onClick={() => {
                         setLogClicked(true);
                         setWay('signUp');
                     }} >
                         <p>Sign up</p>
-                    </div>
+                    </div> */}
                 </div>}
 
             {userIconCliked? <SideBar />:null }

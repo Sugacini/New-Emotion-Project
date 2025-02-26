@@ -1,0 +1,8 @@
+{
+	"command": "node app.js",
+	"build_path": "/home/ravi-zstk379/Documents/combination/New-Emotion-Project/backend",
+	"stack": "node20",
+	"env_variables": {},
+	"memory": 256,
+	"scripts": {}
+}

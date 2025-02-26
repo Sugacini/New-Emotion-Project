@@ -7,7 +7,7 @@ const cors=require("cors");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "suga@123",
+    password: "your_password1",
     database: "Emotions",
 });
 
@@ -26,6 +26,10 @@ var foodId = [[52767, 52792, 52803, 52807, 52812, 52824, 52826, 52834, 52842, 52
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+app.set('view engine', 'ejs');
+
+
 
 const pubDir = path.join(__dirname, "/public");
 app.use(express.static(pubDir));
@@ -57,6 +61,10 @@ connection.connect((err) =>{
         connection.query('use UnarvAI;');
         connection.query('create table if not exists UnarvAIUsers(IdNumber int primary key auto_increment,userId varchar(100) , userName varchar(100), password varchar(100));');
     }
+})
+
+app.get("/",(req,res)=>{
+    res.send("success")
 })
 
 app.post("/userIdCheck",(req,res)=>{
