@@ -185,6 +185,36 @@ app.post('/emotions',async (req,res)=>{
 
 })
 
+app.post("/addJournal", (req, res) => {
+    console.log(req.body);
+    let {userId, date, time} = req.body;
+    var userNum;
+    console.log("Data", userId)
+    try{
+        connection.query("select IdNumber from UnarvAIUsers where userId = ?", [userId], (err, result) => {
+            if(err){
+                console.log(err);
+            }
+            else{
+                userNum = res[0].IdNumber;
+                console.log(userNum);
+                connection.query("select IdNumber from UnarvAIUsers where userId = ?", [userId], (error, results) => {
+                    if(error){
+                        console.log(error);
+                    }
+                    else{
+
+                    }
+                })
+                
+            }
+        })
+    }
+    catch(err){
+        console.log("Error", err);
+    }
+})
+
 app.get("/food", async (req, res) => {
     let res1;
     let result;
