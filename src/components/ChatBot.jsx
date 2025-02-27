@@ -10,9 +10,9 @@ import Header from './Header';
 
 function ChatBot() {
     const location = useLocation();
-  const result = location.state;
-  const userId = result.idOfUser;
-  const data1 = (JSON.stringify(result.emo1));
+    const result = location.state;
+    const userId = result.idOfUser;
+    const data1 = (JSON.stringify(result.emo1));
     const finalEmo = data1.slice(1,data1.length-1);
     const navigate = useNavigate();
     const [messages,setMessage] = useState([]);
@@ -32,7 +32,7 @@ function ChatBot() {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer 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",
             // "HTTP-Referer": "<YOUR_SITE_URL>",
             "X-Title": "UnarvAI", 
             "Content-Type": "application/json"
@@ -50,6 +50,8 @@ function ChatBot() {
   
         if(response.ok){
           const responseData = await response.json();
+          console.log(responseData);
+          
           setMessage([...messages,responseData.choices[0].message.content]);  
           console.log(responseData.choices[0].message.content);
         }
@@ -58,6 +60,11 @@ function ChatBot() {
         
       }
     }
+
+    useEffect(()=>{
+      console.log(finalEmo);
+      setMessage(["start a conversation with me, I am "+finalEmo+" today, don't acknowledge me just start"]);  
+    },[])
   
 
 
