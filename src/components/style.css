@@ -217,6 +217,11 @@ input::placeholder{
     cursor: pointer;
 }
 
+.lastLineOfLogin{
+    display: flex;
+    gap: 10px;
+}
+
 /* sideBar */
 
 :root{
@@ -499,12 +504,11 @@ input::placeholder{
 }
 
 .loginTxt{
-    /* border: 1px solid #ffffff; */
-    /* border-radius:15px; */
+    border-radius:15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 10px 13px;
     padding-bottom: 13px;
     color: #ffffff;
     cursor: pointer;
@@ -571,12 +575,14 @@ input::placeholder{
 
 .underSmlLoginTxt{
     color: black;
-}
-
-.underSmlLoginTxt:hover{
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* .underSmlLoginTxt:hover{
+    text-decoration: underline;
+    cursor: pointer;
+} */
 
 .sideBar{
     position: absolute;

@@ -158,6 +158,10 @@
 
 .saveButton{
     padding: 10px 20px;
+    background-color: #0085E1;
+    border: none;
+    border-radius:13px ;
+    color: white;
 }
 
 .trash{
@@ -223,4 +227,10 @@
     /* margin: auto; */
     font-size: 1.2em;
     /* margin-top: 32%; */
+}
+
+.noDataFound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

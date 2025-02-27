@@ -207,15 +207,20 @@ app.put("/updateJournal",(req,res)=>{
     })  
 })
 
-app.post("/deleteJournal",(req,res)=>{
-    connection.query("delete from Journals", [content, id], (error, results) => {
+app.get("/deleteJournal",(req,res)=>{
+    var {id} = req.query;
+    console.log(req.query);
+    
+    connection.query("delete from Journals where journalId = ?", [id], (error, results) => {
         if(error){
             console.log(error);
         }
         else{
+            console.log('deleted');
+            
             res.status = 200;
 
-            res.send('added');
+            res.send('deleted');
         }
     })  
 })

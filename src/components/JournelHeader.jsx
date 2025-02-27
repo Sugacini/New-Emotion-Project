@@ -101,21 +101,36 @@ function JournelLogo() {
         
     }
 
-    function deleteData() {
+    async function deleteData() {
         
 
-        // if (JournalSelected.idx!=null) {
+        if (JournalSelected.idx!=null) {
+            await fetch("http://localhost:3000/deleteJournal?id="+JournalSelected.idx);
+            var toDeleteElement;
 
-        // }
-        // else{
-        //     newDiv.current.remove();
-        //     setCount(0);
-        //     console.log("Delete the data");
-        // }
+            newDataDiv.map((ele,idx)=>{
+                if (ele.idx==JournalSelected.idx) {
+                    toDeleteElement=idx;
+                    
+                }
+            })
+            newDataDiv.splice(toDeleteElement,1);
+            newDiv.current.remove();
+            setCount(0);
+            JournalSelected.idx=null;
+        }
+        else{
+            newDiv.current.remove();
+            setCount(0);
+            console.log("Delete the data");
+        }
 
     }
 
     function singleJournalClickHandler(e){
+
+        console.log('here');
+        
 
         var clickedElement=e.target;
         if (JournalSelected.idx!=null) {
@@ -136,6 +151,9 @@ function JournelLogo() {
     
             }
             // console.log(JournalSelected.idx);    
+
+            console.log("upto", JournalSelected.idx);
+            
             
             setCount(0);
     
@@ -151,16 +169,7 @@ function JournelLogo() {
     async function initializer() {
         var allPrevJournalsResponse=await fetch("http://localhost:3000/prevJournals?userId="+userId);
         var allPrevJournals=await allPrevJournalsResponse.json();
-        console.log(allPrevJournals);
-        // allPrevJournals.map((journal)=>console.log(journal.date.split("T")[0].split("-").join("/")))
-        var prevJournals=[]
-
-        // var journel={content:"hello Night"};
-        // var tryi = ((journel.content.indexOf(" ")!=-1)&&(journel.content.indexOf(" ")<10))?journel.content.slice(0,journel.content.indexOf(" ")):journel.content.slice(0,8);
-        
-        // console.log(tryi);
-        
-        
+        var prevJournals=[]        
         allPrevJournals.map((journal)=>prevJournals.push({
             value1:((journal.content.indexOf(" ")!=-1)&&(journal.content.indexOf(" ")<9))?journal.content.slice(0,journal.content.indexOf(" ")):journal.content.slice(0,8),
             date:journal.date.split("T")[0].split("-").join("/"),
@@ -168,22 +177,6 @@ function JournelLogo() {
             value:journal.content,
             idx:journal.journalId
         }))
-        // console.log(prevJournals);
-        
-        // allPrevJournals.map((journal)=>
-        //     // console.log(journal.date.split("T")[0].split("-").join("/"))
-        // setDataDiv((prev)=> [...prev,
-        //     {
-        //     value1:journal.content.slice(0,5),
-        //     date:journal.date.split("T")[0].split("-").join("/"),
-        //     time:journal.time
-        
-        // }])
-    // )
-
-        // console.log(allPrevJournals);
-        
-
         setDataDiv(prevJournals)
 
         
@@ -199,9 +192,6 @@ function JournelLogo() {
 
             <div className={style.journelHeader}>
                 <div className={style.logo}>
-                    {/* <div className={style.logo1}>
-                        <div className={style.image}></div>
-                    </div> */}
                     <div className={style.name}>Journel</div>
                 </div>
 
@@ -214,12 +204,12 @@ function JournelLogo() {
             </div>
 
             <div className={style.writeJournel}>
-                {/* {count==0?null:null} */}
                 <div className={style.journelContainer} ref={createTextDiv} style={(count==0)?{width:'0%'}:{width:'80%'}}>
                     {newJournelDiv.map((el, index) => (
                         
                         <div key={index} className={style.journelBox} ref={newDiv}>
-                            <textarea className={style.textBox} ref={writeText} placeholder="You can start writing here..." defaultValue={JournalSelected.idx?newDataDiv[JournalSelected.idx-1].value:undefined}></textarea>
+
+                            <textarea className={style.textBox} ref={writeText} placeholder="You can start writing here..." defaultValue={JournalSelected.idx?newDataDiv.filter(el=>(el.idx==JournalSelected.idx))[0].value:undefined}></textarea>
                             <div className={style.buttons}>
                                 <button className={style.saveButton} onClick={saveData}>Save</button>
                                 <button className={style.trash} onClick={deleteData}>Delete</button>
@@ -229,15 +219,19 @@ function JournelLogo() {
                 </div>
                 <div className={style.saveJournel} ref={writingDataSave} style={(count==0)?{flexDirection:'row', height:'fit-content', minWidth: '343px'}:{width:'20%'}}>
                 {newDataDiv.length!=0?newDataDiv.map((ele, index) => {
-                        // { console.log(ele) }
-                        return <div className={style.dataSaveDiv} ref={saveText} key={index} id={ele.idx} onClick={singleJournalClickHandler} style={(JournalSelected.idx==index)?{background:'#0085e1'}:null}>
+                        return <div className={style.dataSaveDiv} ref={saveText} key={index} id={ele.idx} onClick={singleJournalClickHandler} style={((JournalSelected.idx)==ele.idx)?{background:'#0085e1'}:null}>
                             <p className={style.headOfJournel}>{ele.value1}</p>
                             <div className={style.timeAndDate}>
                                 <p>{ele.date}</p>
                                 <p>{ele.time}</p>
                             </div>
                         </div>
-                    }): <p>You have not created any journal yet!</p> }
+                    }): 
+                    <div className={style.noDataFound}>
+                        <img src="noDataFound.jpg" alt="" />
+                        <p>No Journals created yet!</p>
+                    </div>
+                     }
                     
                 </div>
             </div>
