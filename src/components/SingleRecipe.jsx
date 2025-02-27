@@ -3,6 +3,7 @@ import "../Home.css";
 import { FaLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Header from "./Header";
 
 async function takeFood(idOfFood) {
     try {
@@ -35,6 +36,8 @@ function SingleRecipe() {
     const navigate = useNavigate();
     const [isSingleFood, setSingleFood] = useState(null);
     const [isIngre, setIngre] = useState("");
+    const ingreArr = [];
+    let datas;
 
     useEffect(() => {
         takeFood(data.idOfFood).then(res => setSingleFood(res));
@@ -42,30 +45,30 @@ function SingleRecipe() {
 
     return (
         <div className="singleFoodOuter">
-            <div className="foodBack">
-                <div className="iconBack" onClick={() => { navigate("/food", {state: {emo:data.emo1, idOfUser: userId}}) }}>
-                    <FaLeftLong style={{ fontSize: "50px" }}></FaLeftLong>
-                </div>
-            </div>
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'food'} obj={{ state: { emo: data.emo1, idOfUser: userId } }} />
             {(isSingleFood != null) ?
                 <div className="singleFoodContainer">
                     <div className="foodName">
                         {isSingleFood.meals[0].strMeal}</div>
                     <div className="foodImg">
-                        <img src={isSingleFood.meals[0].strMealThumb} className="setImg"/>
+                        <img src={isSingleFood.meals[0].strMealThumb} className="setImg" />
                     </div>
                     <div className="ingrediants">
                         <p className="ingreHead">Ingredients</p>
                         {ingreData.map((_, index) => {
-                            let value1= 'strIngredient'+(index+1)
+                            let value1 = 'strIngredient' + (index + 1)
                             console.log(value1);
-                            // setIngre(value1);
                             let value = isSingleFood.meals[0][value1];
-                            console.log(value);
-                            return(
-                                <li className="ingreValues">{value}</li>
-                            )
+                            ((value != "") || (value != null))?ingreArr.push(value):null
                         })}
+                        {console.log(ingreArr.filter(item => ((item != "") && (item != null) && (item.length != 0))))}
+                        {(ingreArr.filter(item => ((item != "") && (item != null) && (item.length != 0)))
+                        .map(item => {
+                            {console.log(item)}
+                            return(
+                                <li className="ingreValues">{item}</li>
+                            )
+                        }))}
                     </div>
                     <div className="instruction">
                         <p className="instruHead">Instructions</p>
@@ -73,29 +76,13 @@ function SingleRecipe() {
                     </div>
                 </div>
                 : <div class="loader">
-                <span></span>
-                <span></span>
-                <span></span>
-                {/* <p>Loading</p> */}
-              </div>}
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>}
         </div>
 
     )
 }
 
 export default SingleRecipe;
-
-
-
-
-{/* <div className="descript">
-    <div className="descriptOuter">
-        <div className="nameFood">
-            <p className="setFoodName">Food Name:</p>
-            <p className="setName1">{nameofFood}</p>
-        </div>
-        <div className="foodDesc">
-            <p className="setDesc">Lamb Rogan Josh is a classic Kashmiri dish made with tender lamb slow-cooked in a rich, aromatic gravy. It features a blend of yogurt, tomatoes, and warm spices like cardamom, cinnamon, and Kashmiri red chili. This dish is known for its deep red color and flavorful, mildly spicy taste.</p>
-        </div>
-    </div>
-</div> */}

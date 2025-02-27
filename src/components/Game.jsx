@@ -1,12 +1,15 @@
 import { useLocation } from "react-router-dom";
+import Header from "./Header";
 
 function Game() {
     const location = useLocation();
     const data = location.state;
     const data1 = data.emo;
+    const userId = data.idOfUser;
     console.log(data1);
     return (
         <div className="gameOuter">
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'features'} obj={{state: {findEmo: data1, idOfUser: userId}}}/>
             <div className="gameInsideOuter">
                 <div className="gameHead">SELECT YOUR GAMES</div>
                 <div className="gameQuote">"Play, enjoy, and let the game bring out the best in you"</div>

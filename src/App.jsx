@@ -7,7 +7,7 @@ import Features from "./components/Features";
 import Home from "./components/Home";
 import MusicPage from "./components/musicPage";
 import ChatBot from "./components/ChatBot";
-import HomePage from "./components/headerAndFirstPage";
+import HomePage from "./components/HomePage";
 import SingleRecipe from "./components/SingleRecipe";
 import Food from "./components/Food";
 import Book from "./components/Book";
@@ -19,6 +19,7 @@ function App(){
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/landingPage" element={<HomePage />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/features" element={<Features />} />

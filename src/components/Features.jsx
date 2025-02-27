@@ -75,6 +75,7 @@ function Features() {
     }
 
     function bookHander(){
+        console.log(finalEmo);
         (userUniqueId==null)? loginBtn.current.click():navigate("/book", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
     }
 
@@ -100,6 +101,10 @@ function Features() {
                 </div> */}
                 
             </div>
+            <div className={style.feaContainer}>
+                {/* <div className={style.loadingAni}>
+                    <img src="/smile.gif" className={style.loadingGif}></img>
+                </div> */}
             <div className={style.featureContainer}>
 
                 <div className={`${style.item} ${style.feature1}`} onClick={musicHandler} title="Songs">
@@ -139,6 +144,8 @@ function Features() {
                     <FaGamepad className={style.icons} />
                 </div>
 
+            </div>
+            {/* <div className={style.loadingAni}></div> */}
             </div>
             {/* </Router> */}
             {/* {(userUniqueId==null && featureClicked)?<Login setLog={setLog} setWay={setWay} wayToLogin={wayToLogin} setUserId={setUserId} userUniqueId={userUniqueId}/>:null} */}

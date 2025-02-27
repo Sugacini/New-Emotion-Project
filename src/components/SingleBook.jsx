@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Header from "./Header";
 
 async function bookDetails(data1) {
     let response = await fetch("http://localhost:3000/getBookById", {
@@ -23,6 +24,8 @@ function SingleBook() {
     const location = useLocation();
     const data = location.state;
     const data1 = data.bookId;
+    const data2 = data.findEmo;
+    const userId = data.idOfUser
     console.log(data);
     const [isBookDetails, setBookDetails] = useState(null);
 
@@ -32,6 +35,7 @@ function SingleBook() {
     console.log("Enter");
     return (
         <div className="singleBookOuter">
+            <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'book'} obj={{state: {emo: data2, idOfUser: userId}}}/>
             {console.log(isBookDetails)}
             {(isBookDetails != null) ? 
             <div className="singleBookOuter1">
@@ -56,10 +60,10 @@ function SingleBook() {
                         <p className="year">{isBookDetails.volumeInfo.publishedDate}</p>
                     </div>
 
-                    <div className="bookDesc">
+                    {(isBookDetails.volumeInfo.description) ? <div className="bookDesc">
                         <p className="publish">Description</p>
                         <p className="bookDescription">{isBookDetails.volumeInfo.description}</p>
-                    </div>
+                    </div> : <p></p>}
 
                     <div className="linkOfBook">
                         <a href={isBookDetails.volumeInfo.infoLink} className="navigateLinks" target="_blank">Info</a> ||  

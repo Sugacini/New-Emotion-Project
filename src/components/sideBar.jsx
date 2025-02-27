@@ -1,13 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 function SideBar() {
+    const navigate = useNavigate();
     return (
-        <div className="sideBar">
-            <p>Today's mood</p>
+        <div className="sideBar" onClick={() => {navigate("/")}}>
+            {/* <p>Today's mood</p>
 
             <p>This week</p>
 
-            <p>Change userId</p>
+            <p>Change userId</p> */}
 
-            <p>Log out</p>
+            <p className="logoutBtn">Log out</p>
         </div>
     )
     

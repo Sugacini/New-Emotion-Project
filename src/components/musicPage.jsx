@@ -26,7 +26,7 @@ async function dataReceiver(emotionEmoji) {
     var response= await fetch('http://localhost:3000/emotions',{
       method:'POST',
       headers:{"Content-type":"application/json"},
-      body:JSON.stringify({emotion:'neutral'})})
+      body:JSON.stringify({emotion:"surprised"})})
       
     var responseData= await response.json();    
     return responseData;
@@ -107,7 +107,12 @@ function MusicPage() {
           <div className={addElement ? 'musicBottomSec' : 'mainsBottomSec'}>
 
             {!addElement ? (data!=null)? data.map((album, idx) =>      
-              (idx < 9) ? <AlbumBox name={album.data.name} key={idx} idx={idx} imgUrl={album.data.image[2].url} setState={setState} setAlbum={setAlbum} description={album.data.description}></AlbumBox> :null):<p>Choosing the right ones for you!</p> : null }
+              (idx < 9) ? <AlbumBox name={album.data.name} key={idx} idx={idx} imgUrl={album.data.image[2].url} setState={setState} setAlbum={setAlbum} description={album.data.description}></AlbumBox> :null):<div class="loader">
+              <span></span>
+              <span></span>
+              <span></span>
+              {/* <p>Loading</p> */}
+            </div> : null }
 
             {addElement ? <div className='titleBox'>
               {!resume && (canPlay==true)?<PauseButton playFirst={playFirst} decreseParentsWidth={decreseParentsWidth} setFirstPlay={setFirstPlay} canPlay={canPlay} setPlayStatus={setPlayStatus} setResume={setResume} resume={resume}/>

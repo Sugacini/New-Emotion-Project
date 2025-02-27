@@ -2,7 +2,7 @@ import "../Home.css"
 import { useRef, useState, useEffect } from "react";
 import * as faceapi from "face-api.js";
 import { Link, useNavigate , useLocation} from "react-router-dom";
-import Features from "./Features";
+import Header from "./Header";
 let count = 0;
 
 function Home() {
@@ -13,6 +13,7 @@ function Home() {
 
     const location = useLocation();
     const userData = location.state;
+    const userId = userData.idOfUser;
     console.log(userData);
 
     const [isEmotion, setEmotion] = useState(true);
@@ -131,7 +132,7 @@ function Home() {
                 findEmotion.current = allEmotions[indexVal];
                 console.log(allEmotions[indexVal], temp);
             }
-            detectMessage.current.textContent = allEmotions[indexVal];
+            detectMessage.current.textContent = allEmotions[indexVal].toUpperCase();
         }, 2000)
 
         setTimeout(() => {
@@ -144,6 +145,7 @@ function Home() {
     return (
 
         <>
+        <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'landingPage'} obj={{state: {idOfUser: userId}}} className="BookHeader"/>
             <div className="homeOuter">
                 <div className="detectHeading">CAPTURING EXPRESSION</div>
                 <div className="videoImg">
