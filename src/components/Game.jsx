@@ -11,7 +11,7 @@ function Game() {
         <div className="gameOuter">
             <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={'features'} obj={{state: {findEmo: data1, idOfUser: userId}}}/>
             <div className="gameInsideOuter">
-                <div className="gameHead">SELECT YOUR GAMES</div>
+                <div className="gameHead"></div>
                 <div className="gameQuote">"Play, enjoy, and let the game bring out the best in you"</div>
                 <div className="game">
                     <div className="game1">

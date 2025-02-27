@@ -26,7 +26,7 @@ async function dataReceiver(emotionEmoji) {
     var response= await fetch('http://localhost:3000/emotions',{
       method:'POST',
       headers:{"Content-type":"application/json"},
-      body:JSON.stringify({emotion:"surprised"})})
+      body:JSON.stringify({emotion:emotionEmoji})})
       
     var responseData= await response.json();    
     return responseData;

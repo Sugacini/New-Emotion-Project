@@ -24,7 +24,8 @@ function SingleBook() {
     const location = useLocation();
     const data = location.state;
     const data1 = data.bookId;
-    const data2 = data.findEmo;
+    const data2 = data.emo;
+    console.log(data2)
     const userId = data.idOfUser
     console.log(data);
     const [isBookDetails, setBookDetails] = useState(null);

@@ -31,10 +31,7 @@ function Book() {
     const userId = data.idOfUser
     console.log(data);
     const moodQuote ={
-        happy: ['"Be happy for this moment. This moment is your life"', '"Happiness is secret to all beauty,There is no beauty without happiness"', '"Good food is all the sweeter when shared with good friends"', '"Good food, good mood, that is the perfect recipe for life"'],
-        angry: ['"Hunger and anger are both powerful, but food is the one that silences them"', '"Sometimes, food is the only thing that understands your anger"', '"In moments of anger, food is the one thing that can silence the storm."', '"Even in anger, peace comes with the first bite of your favorite dish."'],
-        sad: ['"When you are feeling down, food has a way of reminding you that not all is lost"', '"In times of sadness, a warm meal is a gentle reminder that comfort still exists"', '"When you are feeling low, food is a small piece of joy you can hold on to."'],
-        surprised: ['"The best meals are often the ones that surprise you"', '""']
+        happy: ['"Be happy for this moment. This moment is your life"', '"Happiness is secret to all beauty,There is no beauty without happiness"'],
     }
     const quote = ['"A book is proof that humans can work magic with emotions"', '"A day without laughter is a day wasted"', '"For every minute you are angry, you lose sixty seconds of happiness."']
     console.log(data1);

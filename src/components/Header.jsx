@@ -37,12 +37,12 @@ function Header({setUserId, userUniqueId, loginBtn={loginBtn}, backTo, obj}) {
                         setLogClicked(true);
                         setWay('login');
                     }} >
-                        <p>Login</p>
+                        <p>Sign in</p>
                     </div>:<div className="loginTxt" onClick={() => {
                         setLogClicked(true);
                         setWay('login');
                     }} >
-                        <p>Login</p>
+                        <p>Sign in</p>
                     </div>}
                     
                     {/* <div className="signUpTxt" onClick={() => {
