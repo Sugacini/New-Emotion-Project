@@ -193,34 +193,94 @@ app.post('/emotions',async (req,res)=>{
 
 })
 
-app.post("/addJournal", (req, res) => {
+app.put("/updateJournal",(req,res)=>{
+    let {userId, date, time, content,id} = req.body;
+    connection.query("update Journals set content = ? where journalId = ?", [content, id], (error, results) => {
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.status = 200;
+
+            res.send('added');
+        }
+    })  
+})
+
+app.post("/deleteJournal",(req,res)=>{
+    connection.query("delete from Journals", [content, id], (error, results) => {
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.status = 200;
+
+            res.send('added');
+        }
+    })  
+})
+
+app.put("/addJournal", (req, res) => {
     console.log(req.body);
-    let {userId, date, time} = req.body;
+    let {userId, date, time, content} = req.body;
     var userNum;
-    console.log("Data", userId)
+    console.log("userId : ", content)
     try{
         connection.query("select IdNumber from UnarvAIUsers where userId = ?", [userId], (err, result) => {
             if(err){
                 console.log(err);
             }
             else{
-                userNum = res[0].IdNumber;
-                console.log(userNum);
-                connection.query("select IdNumber from UnarvAIUsers where userId = ?", [userId], (error, results) => {
+                connection.query("create table if not exists Journals (journalId int primary key auto_increment, userIdNum int, content text, date DATE, time varchar(8), foreign key (userIdNum) references UnarvAIUsers(IdNumber) on delete cascade)", (error, responseFromDb) => {
                     if(error){
                         console.log(error);
                     }
                     else{
+                        userNum = result[0].IdNumber;
+                        // console.log(userNum);
+                        connection.query("insert into Journals (userIdNum, content, date, time) values (?,?,?,?)", [userNum, content, date, time.trim()], (error, results) => {
+                            if(error){
+                                console.log(error);
+                            }
+                            else{
+                                res.status = 200;
 
+                                res.send('added');
+                                // console.log(results);                                        
+                            }
+                        })                            
                     }
-                })
-                
+                })   
+                          
             }
         })
     }
     catch(err){
         console.log("Error", err);
     }
+})
+
+app.get("/prevJournals",(req,res)=>{
+    var {userId}=req.query
+    console.log("userId : ",userId);
+    connection.query("select IdNumber from UnarvAIUsers where userId = ?", [userId], (err, result) => {
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log(result[0].IdNumber);
+            var userNum=result[0].IdNumber;
+            connection.query("select * from Journals where userIdNum = ?", [userNum], (err, response) => {
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    res.send(response);   
+                }
+            })
+        }
+    })
+    
 })
 
 app.get("/food", async (req, res) => {
