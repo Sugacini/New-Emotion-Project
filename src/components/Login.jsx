@@ -121,7 +121,7 @@ function Login({setLog, setWay, wayToLogin, setUserId, userUniqueId, setLogClick
             </div>
             <button className="signUpSubmitBtn" type="submit">Login</button>
 
-            <p>Are you a new User? <span className="underSmlLoginTxt" onClick={()=>setWay("SignUp")}> Sign up</span> </p>
+            <p className="lastLineOfLogin">Are you a new User? <span className="underSmlLoginTxt" onClick={()=>setWay("SignUp")}> Sign up</span> </p>
         </form>
         :
         <form action="" className="signUpForm" onSubmit={sigUpHandler}>
@@ -142,7 +142,7 @@ function Login({setLog, setWay, wayToLogin, setUserId, userUniqueId, setLogClick
                 </div>
                 <button className="signUpSubmitBtn" type="submit">Sign Up</button>
 
-                <p>Already have an account? <span className="underSmlLoginTxt" onClick={()=>setWay("login")}> Login</span></p>
+                <p className="lastLineOfLogin">Already have an account?<span className="underSmlLoginTxt" onClick={()=>setWay("login")}> Login</span></p>
             </form>
         }
             
