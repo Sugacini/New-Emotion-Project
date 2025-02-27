@@ -67,7 +67,12 @@ function SingleBook() {
                     </div>
                 </div>
             </div>
-            :<p className="loading">Loading</p>}
+            :<div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            {/* <p>Loading</p> */}
+          </div>}
         </div>
     )
 }

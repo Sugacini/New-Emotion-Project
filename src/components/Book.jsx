@@ -49,7 +49,12 @@ function Book() {
                         <img src={singleBook.volumeInfo.imageLinks.thumbnail} className="setBookImg"></img>
                         <p className="bookName">{singleBook.volumeInfo.title}</p>
                     </div>
-                }) : <p>Loading</p>}
+                }) : <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                {/* <p>Loading</p> */}
+              </div>}
             </div>
         </div>
     )

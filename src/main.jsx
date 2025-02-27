@@ -7,8 +7,5 @@ import Game from './components/Game.jsx';
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Game />
-    {/* <App /> */}
-  </StrictMode>,
+  <App />
 )

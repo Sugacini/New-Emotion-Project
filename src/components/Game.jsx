@@ -1,11 +1,16 @@
+import { useLocation } from "react-router-dom";
+
 function Game() {
+    const location = useLocation();
+    const data = location.state;
+    const data1 = data.emo;
+    console.log(data1);
     return (
         <div className="gameOuter">
             <div className="gameInsideOuter">
                 <div className="gameHead">SELECT YOUR GAMES</div>
                 <div className="gameQuote">"Play, enjoy, and let the game bring out the best in you"</div>
                 <div className="game">
-                    {/* <a href="https://scratch.mit.edu/projects/1044819398/fullscreen/" className="game1" target="_blank"> */}
                     <div className="game1">
                         <div className="game1Inside">
                             <p className="gameDesc">A Jumbled Word Game is a fun and challenging puzzle where players unscramble mixed-up letters to form correct words.</p>

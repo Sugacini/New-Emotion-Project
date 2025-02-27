@@ -72,7 +72,12 @@ function SingleRecipe() {
                         <p>{isSingleFood.meals[0].strInstructions}</p>
                     </div>
                 </div>
-                : <p>Loading</p>}
+                : <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                {/* <p>Loading</p> */}
+              </div>}
         </div>
 
     )

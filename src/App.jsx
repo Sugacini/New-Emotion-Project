@@ -12,6 +12,7 @@ import SingleRecipe from "./components/SingleRecipe";
 import Food from "./components/Food";
 import Book from "./components/Book";
 import SingleBook from "./components/SingleBook";
+import Game from "./components/Game";
 
 function App(){
   return(
@@ -30,6 +31,7 @@ function App(){
         <Route path="/singleFood" element={<SingleRecipe />} />
         <Route path="/book" element={<Book />} />
         <Route path="/singleBook" element={<SingleBook />} />
+        <Route path="/game" element={<Game />} />
       </Routes>
     </Router>
   )

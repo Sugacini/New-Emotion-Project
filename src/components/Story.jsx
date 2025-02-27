@@ -1,5 +1,5 @@
 import "../Home.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaQuoteRight, FaLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -32,14 +32,9 @@ function Story(){
         setMoral(res2.moral);
     }
 
-    console.log(count);
-    if(count == 0){
-        console.log('printed');
+    useEffect(() => {
         getStory();
-        count++;
-    }
-    
-    console.log(count);
+    }, [])
 
     return(
         <>

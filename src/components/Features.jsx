@@ -78,6 +78,10 @@ function Features() {
         (userUniqueId==null)? loginBtn.current.click():navigate("/book", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
     }
 
+    function gameHandler(){
+        (userUniqueId==null)? loginBtn.current.click():navigate("/game", {state: {emo: (finalEmo), idOfUser: userUniqueId }});
+    }
+
     // function backHome(params) {
     //     return navigate("/home");
     // }
@@ -131,7 +135,7 @@ function Features() {
                     <FaRobot className={style.icons} />
                 </div>
 
-                <div className={`${style.item} ${style.feature7}`} title="Games">
+                <div className={`${style.item} ${style.feature7}`} title="Games" onClick={gameHandler}>
                     <FaGamepad className={style.icons} />
                 </div>
 

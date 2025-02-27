@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaQuoteLeft, FaQuoteRight, FaBookOpen } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { FaLeftLong } from "react-icons/fa6";
 import Story from "./Story";
 import Header from "./Header";
@@ -44,11 +45,9 @@ function Quotes(){
         
     }
 
-    if(count == 0){
+    useEffect(() => {
         nextQuoHandler();
-        count++;
-    }
-
+    }, [])
     return(
         <>
             <Header userUniqueId={userId} setUserId={null} loginBtn={null} backTo={"features"} obj={{state: {findEmo: finalEmo, idOfUser: userId}}}/>

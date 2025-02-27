@@ -51,12 +51,9 @@ function Food() {
 
             <div className="recipes">
                 <div className="foodHead">
-                    {/* <div className="fooBack" onClick={() => {navigate("/features", {state: {findEmo: data1, idOfUser: userId}})}}>
-                        <div className="iconBack1">
-                            <FaLeftLong style={{fontSize: "70px"}}></FaLeftLong>
-                        </div>
-                    </div> */}
-                    <p className="foodHead1">Food</p>
+                    <div className="foodHead1">
+                      <p className="foodQuo">"People who love to eat are always the best people"</p>
+                      </div>
                 </div>
                 <div className="insertFood">
                     {(isFood != null)? isFood.map((setOfFood, index) => {
@@ -74,7 +71,13 @@ function Food() {
                         <img src={isFood[index].meals[0].strMealThumb} className="recipeImg" id={index}></img>
                         <div className="recipeName">{isFood[index].meals[0].strMeal}</div>
                     </div>
-                    }) : <p>Loading</p>}
+                    }) : <div class="loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    {/* <p>Loading</p> */}
+                  </div>
+                    }
                 </div>
             </div>
         </div>
